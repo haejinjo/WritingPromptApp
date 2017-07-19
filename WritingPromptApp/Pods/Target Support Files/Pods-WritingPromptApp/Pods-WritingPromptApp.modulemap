@@ -1,0 +1,6 @@
+framework module Pods_WritingPromptApp {
+  umbrella header "Pods-WritingPromptApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
