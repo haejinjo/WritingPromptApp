@@ -15,9 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    // this is performed at launch time, can be used for extra setup PRIOR to app launch
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        let storyboard = UIStoryboard(name: "Login", bundle: .main)
+        if let initialViewController = storyboard.instantiateInitialViewController() {
+            window?.rootViewController = initialViewController
+            window?.makeKeyAndVisible() // position above any other existing windows
+        }
         return true
     }
 
