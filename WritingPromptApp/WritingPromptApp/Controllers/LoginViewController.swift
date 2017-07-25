@@ -10,5 +10,14 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var getStartedButton: UIButton!
+    
+    @IBAction func getStartedButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+    }
     
 }
