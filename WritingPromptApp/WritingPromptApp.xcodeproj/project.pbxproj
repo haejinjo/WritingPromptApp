@@ -15,6 +15,8 @@
 		00005C551F202AB6001E20ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00005C541F202AB6001E20ED /* GoogleService-Info.plist */; };
 		004E85271F1EC6020015686D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E85261F1EC6020015686D /* AppDelegate.swift */; };
 		004E852E1F1EC6020015686D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004E852D1F1EC6020015686D /* Assets.xcassets */; };
+		0098C7B41F28005800384394 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B31F28005800384394 /* User.swift */; };
+		0098C7B71F2803EA00384394 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */; };
 		3E0E0DF86CF20452BEE295A1 /* Pods_WritingPromptApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		004E85231F1EC6020015686D /* WritingPromptApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritingPromptApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004E85261F1EC6020015686D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004E852D1F1EC6020015686D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0098C7B31F28005800384394 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		5D15BD5458CDA23AB143CA6E /* Pods-WritingPromptApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.release.xcconfig"; sourceTree = "<group>"; };
 		A429CE38F5551CF71F7A6C7A /* Pods-WritingPromptApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WritingPromptApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +55,7 @@
 			children = (
 				00005C441F201EAA001E20ED /* ViewController.swift */,
 				00005C501F2027F2001E20ED /* LoginViewController.swift */,
+				0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 		004E85251F1EC6020015686D /* WritingPromptApp */ = {
 			isa = PBXGroup;
 			children = (
+				0098C7B51F28006000384394 /* Models */,
 				004E85261F1EC6020015686D /* AppDelegate.swift */,
 				00005C4B1F202013001E20ED /* View Controllers */,
 				00005C4C1F202020001E20ED /* Storyboards */,
@@ -102,6 +108,14 @@
 				004E852D1F1EC6020015686D /* Assets.xcassets */,
 			);
 			path = WritingPromptApp;
+			sourceTree = "<group>";
+		};
+		0098C7B51F28006000384394 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0098C7B31F28005800384394 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		8BEFE4CF4F31783CC78E6FFA /* Frameworks */ = {
@@ -247,8 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0098C7B41F28005800384394 /* User.swift in Sources */,
 				00005C511F2027F2001E20ED /* LoginViewController.swift in Sources */,
 				00005C481F201EAA001E20ED /* ViewController.swift in Sources */,
+				0098C7B71F2803EA00384394 /* CreateUsernameViewController.swift in Sources */,
 				004E85271F1EC6020015686D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
