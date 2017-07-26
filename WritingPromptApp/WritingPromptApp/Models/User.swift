@@ -15,10 +15,30 @@ class User {
     let uid: String
     let username: String
     
+    // variable to hold current user; privates cant be accessed outside of this User class
+    private static var _current: User?
+    
+    // computed variable that only has a getter to access private _current var
+    static var current: User {
+        // make sure _current isn't nil
+        guard let currentUser = _current else {
+            fatalError("Error: current user doesn't exist")
+        }
+        // _current returned to the user
+        return currentUser
+    }
+    
+    // Custom setter method to set current user object given in the aparam
+    static func setCurrent(_ user: User) {
+        _current = user
+    }
+    
+    
     init(uid: String, username: String) {
         self.uid = uid
         self.username = username
     }
+    
     
     // Failable init using data snapshot to create new user
     // Failable is useful here because if a user doesnt have a UID or username, it will sipmly return nil

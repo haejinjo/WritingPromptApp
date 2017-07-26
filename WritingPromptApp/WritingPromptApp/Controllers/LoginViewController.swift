@@ -56,17 +56,29 @@ extension LoginViewController: FUIAuthDelegate {
         // construct a relative path to reference of the user's JSON info
         let userRef = Database.database().reference().child("users").child(user.uid)
         
-        // read the data 
+        // 1) read the data
         // Snapshots (retrieved data from Firebase) can be accessed through their "value" property
-        // Will be returned as NSDictionary, NSArray, NSNumber, or NSString
+        // Can be returned as either NSDictionary, NSArray, NSNumber, or NSString
 
-        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-        // We expect users to be returned as dictionaries
+        // 1)
+        userRef.observeSingleEvent(of: .value, with: { [unowned self] (snapshot) in
+       
+            //2)  But we expect users to be returned as dictionaries
             if let user = User(snapshot: snapshot) {
+                User.setCurrent(user)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                    self.view.window?.makeKeyAndVisible()
+        
                 print("Welcome back \(user.username).")
+                }
             } else {
-                self.performSegue(withIdentifier: "toCreateUsername", sender: self)
-            }
+                    self.performSegue(withIdentifier: "toCreateUsername", sender: self)
+            } // end of user if let check 
+            
         }) // end of observe-retrieved-data closure
         
     } //end of authUI method

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth.FIRUser
 
 // Service structs are middle men between our app and Firebase
 
@@ -31,7 +32,7 @@ struct UserService {
                 return completion(nil)
             }
             
-            // read user data we just wrote to FBdatabase and create new User object from it
+            // read user data we just wrote to FBdatabase and create new User object from itbu
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 let user = User(snapshot: snapshot)
                 completion(user)
