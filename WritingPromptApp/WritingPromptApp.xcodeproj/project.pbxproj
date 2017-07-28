@@ -18,6 +18,8 @@
 		0098C7B41F28005800384394 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B31F28005800384394 /* User.swift */; };
 		0098C7B71F2803EA00384394 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */; };
 		0098C7B91F293E8B00384394 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B81F293E8B00384394 /* UserService.swift */; };
+		0098C7BC1F2BBC9C00384394 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7BB1F2BBC9C00384394 /* Constants.swift */; };
+		0098C7BE1F2BBD3600384394 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7BD1F2BBD3600384394 /* Storyboard+Utility.swift */; };
 		3E0E0DF86CF20452BEE295A1 /* Pods_WritingPromptApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		0098C7B31F28005800384394 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		0098C7B81F293E8B00384394 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
+		0098C7BB1F2BBC9C00384394 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
+		0098C7BD1F2BBD3600384394 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Storyboard+Utility.swift"; path = "Extensions/Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		5D15BD5458CDA23AB143CA6E /* Pods-WritingPromptApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.release.xcconfig"; sourceTree = "<group>"; };
 		A429CE38F5551CF71F7A6C7A /* Pods-WritingPromptApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WritingPromptApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,7 @@
 				00005C541F202AB6001E20ED /* GoogleService-Info.plist */,
 				00005C451F201EAA001E20ED /* LaunchScreen.storyboard */,
 				00005C431F201EAA001E20ED /* Info.plist */,
+				0098C7BB1F2BBC9C00384394 /* Constants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 				00005C4D1F20202D001E20ED /* Supporting Files */,
 				004E852D1F1EC6020015686D /* Assets.xcassets */,
 				0098C7BA1F293E9100384394 /* Services */,
+				0098C7BF1F2BBD3B00384394 /* Extensions */,
 			);
 			path = WritingPromptApp;
 			sourceTree = "<group>";
@@ -127,6 +133,14 @@
 				0098C7B81F293E8B00384394 /* UserService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		0098C7BF1F2BBD3B00384394 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0098C7BD1F2BBD3600384394 /* Storyboard+Utility.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		8BEFE4CF4F31783CC78E6FFA /* Frameworks */ = {
@@ -275,7 +289,9 @@
 				0098C7B41F28005800384394 /* User.swift in Sources */,
 				00005C511F2027F2001E20ED /* LoginViewController.swift in Sources */,
 				0098C7B91F293E8B00384394 /* UserService.swift in Sources */,
+				0098C7BE1F2BBD3600384394 /* Storyboard+Utility.swift in Sources */,
 				00005C481F201EAA001E20ED /* ViewController.swift in Sources */,
+				0098C7BC1F2BBC9C00384394 /* Constants.swift in Sources */,
 				0098C7B71F2803EA00384394 /* CreateUsernameViewController.swift in Sources */,
 				004E85271F1EC6020015686D /* AppDelegate.swift in Sources */,
 			);

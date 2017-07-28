@@ -48,38 +48,29 @@ extension LoginViewController: FUIAuthDelegate {
             print("Error signing in: \(error.localizedDescription)")
             return
         }
-        
-        // guard to prevent proceeding if user is nil
-        guard let user = user
-            else {return}
-        
-        // construct a relative path to reference of the user's JSON info
-        let userRef = Database.database().reference().child("users").child(user.uid)
-        
-        // 1) read the data
-        // Snapshots (retrieved data from Firebase) can be accessed through their "value" property
-        // Can be returned as either NSDictionary, NSArray, NSNumber, or NSString
-
-        // 1)
-        userRef.observeSingleEvent(of: .value, with: { [unowned self] (snapshot) in
-       
-            //2)  But we expect users to be returned as dictionaries
-            if let user = User(snapshot: snapshot) {
-                User.setCurrent(user)
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: .main)
-                
-                if let initialViewController = storyboard.instantiateInitialViewController() {
+        if let user = user {
+            UserService.show(forUID: user.uid) { (user) in
+                if let user = user {
+                    User.setCurrent(user)
+                    
+                    //                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                    //
+                    //                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    //                    self.view.window?.rootViewController = initialViewController
+                    //                    self.view.window?.makeKeyAndVisible()
+                    
+                    let initialViewController = UIStoryboard.initialViewController(for: .main)
                     self.view.window?.rootViewController = initialViewController
                     self.view.window?.makeKeyAndVisible()
-        
-                print("Welcome back \(user.username).")
-                }
-            } else {
-                    self.performSegue(withIdentifier: "toCreateUsername", sender: self)
-            } // end of user if let check 
-            
-        }) // end of observe-retrieved-data closure
+                    
+                    print("Welcome back \(user.username).")
+                } else {
+                    self.performSegue(withIdentifier: Constants.Segue.toCreateUsername, sender: self)
+                } // end of user if let check 
+                
+            }
+        }
+         // end of observe-retrieved-data closure
         
     } //end of authUI method
     

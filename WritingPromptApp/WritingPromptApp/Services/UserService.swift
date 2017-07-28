@@ -40,5 +40,22 @@ struct UserService {
             })
         }
     }
+    
+    static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
+      
+        // construct a relative path to reference of the user's JSON info
+        let ref = Database.database().reference().child("users").child(uid)
+        
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+
+            // guard to prevent proceeding if user is nil
+            guard let user = User(snapshot: snapshot) else {
+                return completion(nil)
+            }
+            
+            completion(user)
+        })
+    }
 
 }
