@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MEVFloatingButton-MEVFloatingButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MEVFloatingButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-WritingPromptApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +47,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>10E004FD776D5C2F11CE89C5D9ED3BBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3380590F973AFAFA30255D504B7DEDAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD1596804D8F8383AD0610F16B744608</key>
+		<key>513E4AB52068D6FAA62DC7B7F7998E7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C63360F4681EDF2C746397A6647AB5B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

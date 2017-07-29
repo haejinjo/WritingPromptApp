@@ -5,18 +5,33 @@
 //  Created by Haejin Jo on 7/28/17.
 //  Copyright © 2017 Haejin Jo. All rights reserved.
 //
+import MEVFloatingButton
 
 import UIKit
 
-class ListResponsesViewController: UIViewController {
+class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let floatingButton = MEVFloatingButton()
+        floatingButton.animationType = .MEVFloatingButtonAnimationFromBottom
+        floatingButton.displayMode = .always
+        floatingButton.position = .bottomCenter
+        floatingButton.image = #imageLiteral(resourceName: "icons8-Pencil-48")
+        floatingButton.isRounded = true
+        
+        self.tableView.setFloatingButton(floatingButton)
+        self.tableView.floatingButtonDelegate = self
         // Do any additional setup after loading the view.
         
         responses.append(dummyResponse)
+    }
+    
+    
+    func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        print("YAY")
     }
     
     let dummyResponse = Response(title: "Blah", previewText: "blah", modificationTime: "mod time")
