@@ -13,4 +13,8 @@ struct Constants {
     struct Segue {
         static let toCreateUsername = "toCreateUsername"
     }
+    
+    struct Cell {
+        static let listResponsesTableViewCell = "listResponsesTableViewCell"
+    }
 }

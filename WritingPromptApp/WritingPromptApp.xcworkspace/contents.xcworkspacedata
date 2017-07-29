@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:WritingPromptApp/Views/ListNotesTableViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:WritingPromptApp/Supporting/GoogleService-Info.plist">
    </FileRef>
    <FileRef
