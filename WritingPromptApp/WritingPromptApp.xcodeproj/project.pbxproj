@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00005C481F201EAA001E20ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00005C441F201EAA001E20ED /* ViewController.swift */; };
 		00005C491F201EAA001E20ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00005C451F201EAA001E20ED /* LaunchScreen.storyboard */; };
 		00005C4A1F201EAA001E20ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00005C461F201EAA001E20ED /* Main.storyboard */; };
 		00005C4F1F2026E9001E20ED /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00005C4E1F2026E9001E20ED /* Login.storyboard */; };
@@ -23,12 +22,12 @@
 		0098C7C51F2BDDDA00384394 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7C41F2BDDD900384394 /* Response.swift */; };
 		0098C7CC1F2BFE1400384394 /* ListResponsesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */; };
 		0098C7D01F2C041400384394 /* ListResponsesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */; };
+		0098C7D21F2FA6F300384394 /* DisplayResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */; };
 		3E0E0DF86CF20452BEE295A1 /* Pods_WritingPromptApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00005C431F201EAA001E20ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Supporting/Info.plist; sourceTree = "<group>"; };
-		00005C441F201EAA001E20ED /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
 		00005C451F201EAA001E20ED /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00005C461F201EAA001E20ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		00005C4E1F2026E9001E20ED /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		0098C7C41F2BDDD900384394 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Models/Response.swift; sourceTree = "<group>"; };
 		0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListResponsesViewController.swift; path = Controllers/ListResponsesViewController.swift; sourceTree = "<group>"; };
 		0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListResponsesTableViewCell.swift; path = Views/ListResponsesTableViewCell.swift; sourceTree = "<group>"; };
+		0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayResponseViewController.swift; path = Controllers/DisplayResponseViewController.swift; sourceTree = "<group>"; };
 		5D15BD5458CDA23AB143CA6E /* Pods-WritingPromptApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.release.xcconfig"; sourceTree = "<group>"; };
 		A429CE38F5551CF71F7A6C7A /* Pods-WritingPromptApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WritingPromptApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,10 +65,10 @@
 		00005C4B1F202013001E20ED /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				00005C441F201EAA001E20ED /* ViewController.swift */,
 				00005C501F2027F2001E20ED /* LoginViewController.swift */,
 				0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */,
 				0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */,
+				0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -305,12 +305,12 @@
 			files = (
 				0098C7B41F28005800384394 /* User.swift in Sources */,
 				00005C511F2027F2001E20ED /* LoginViewController.swift in Sources */,
+				0098C7D21F2FA6F300384394 /* DisplayResponseViewController.swift in Sources */,
 				0098C7B91F293E8B00384394 /* UserService.swift in Sources */,
 				0098C7D01F2C041400384394 /* ListResponsesTableViewCell.swift in Sources */,
 				0098C7BE1F2BBD3600384394 /* Storyboard+Utility.swift in Sources */,
 				0098C7CC1F2BFE1400384394 /* ListResponsesViewController.swift in Sources */,
 				0098C7C51F2BDDDA00384394 /* Response.swift in Sources */,
-				00005C481F201EAA001E20ED /* ViewController.swift in Sources */,
 				0098C7BC1F2BBC9C00384394 /* Constants.swift in Sources */,
 				0098C7B71F2803EA00384394 /* CreateUsernameViewController.swift in Sources */,
 				004E85271F1EC6020015686D /* AppDelegate.swift in Sources */,

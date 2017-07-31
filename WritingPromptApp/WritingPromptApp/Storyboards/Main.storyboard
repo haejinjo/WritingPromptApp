@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rx2-2S-avY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,6 +53,7 @@
                                         <connections>
                                             <outlet property="respondedPromptLabel" destination="nxD-lb-tsW" id="6vL-wm-dZL"/>
                                             <outlet property="responseModificationTimeLabel" destination="U66-S4-F2l" id="MkW-Qp-Nx2"/>
+                                            <segue destination="2U2-tz-gKq" kind="show" identifier="toDisplayResponse" id="CGY-fE-bcO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -63,11 +65,119 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zxz-j2-kfn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="g5x-sv-c0Q">
+                            <connections>
+                                <segue destination="AAY-gH-j3j" kind="show" identifier="toReviews" id="60J-w8-0w1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9pU-rb-Nxt" id="y0a-VP-hsr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975.20000000000005" y="41.829085457271368"/>
+        </scene>
+        <!--Inbox? Profile? Reviews?-->
+        <scene sceneID="ux5-RI-8Up">
+            <objects>
+                <viewController id="AAY-gH-j3j" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ngp-Zk-snU"/>
+                        <viewControllerLayoutGuide type="bottom" id="AHS-mu-Vdf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ppE-v5-KOp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Inbox? Profile? Reviews?" id="kBf-Bc-gF3">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="YHQ-EV-Jyi">
+                            <connections>
+                                <segue destination="Diq-bG-9hP" kind="unwind" identifier="backFromReviews" unwindAction="unwindToListResponsesViewController:" id="DTM-jM-sAf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8l-Ll-O0Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Diq-bG-9hP" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-284"/>
+        </scene>
+        <!--Display Response View Controller-->
+        <scene sceneID="TT1-zP-zs0">
+            <objects>
+                <viewController id="2U2-tz-gKq" customClass="DisplayResponseViewController" customModule="WritingPromptApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Smu-kc-MZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="E5s-8M-MMG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Clj-TG-Dfp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fod-P7-xbH">
+                                <rect key="frame" x="16" y="131" width="343" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5c-Ln-zYn">
+                                <rect key="frame" x="16" y="64" width="343" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="YHN-eN-mfb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="leading" secondItem="Clj-TG-Dfp" secondAttribute="leadingMargin" id="8fI-s4-LwD"/>
+                            <constraint firstItem="fod-P7-xbH" firstAttribute="top" secondItem="L5c-Ln-zYn" secondAttribute="bottom" constant="4" id="RjD-uM-hiQ"/>
+                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="top" secondItem="Smu-kc-MZb" secondAttribute="bottom" id="Wxk-XU-em9"/>
+                            <constraint firstItem="E5s-8M-MMG" firstAttribute="top" secondItem="fod-P7-xbH" secondAttribute="bottom" constant="32" id="oAq-mb-hRM"/>
+                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="trailing" secondItem="fod-P7-xbH" secondAttribute="trailing" id="rqW-wG-g24"/>
+                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="leading" secondItem="fod-P7-xbH" secondAttribute="leading" id="tg0-06-62q"/>
+                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="trailing" secondItem="Clj-TG-Dfp" secondAttribute="trailingMargin" id="vro-L8-BjX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Ft-i4-bm4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Qli-dH-zAo">
+                            <connections>
+                                <segue destination="ddQ-Lr-sHi" kind="unwind" identifier="backFromResponse" unwindAction="unwindToListResponsesViewController:" id="w80-Yv-ap2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="promptLabel" destination="L5c-Ln-zYn" id="OMH-MO-GXi"/>
+                        <outlet property="responseTextView" destination="fod-P7-xbH" id="elj-pE-GlB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3n9-s2-tkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ddQ-Lr-sHi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="863"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SYD-sV-uvv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rx2-2S-avY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z5E-gV-WZt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ej1-ci-gEE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vX0-dO-mDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="41.829085457271368"/>
         </scene>

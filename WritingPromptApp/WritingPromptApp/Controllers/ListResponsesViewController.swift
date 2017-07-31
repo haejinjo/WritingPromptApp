@@ -12,9 +12,16 @@ import UIKit
 class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
+        
+    }
+    
+    // for any additional setup after loading th eview
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // USING THE CUSTOM FLOATING BUTTON LIBRARY
         let floatingButton = MEVFloatingButton()
         floatingButton.animationType = .MEVFloatingButtonAnimationFromBottom
         floatingButton.displayMode = .always
@@ -24,10 +31,12 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         
         self.tableView.setFloatingButton(floatingButton)
         self.tableView.floatingButtonDelegate = self
-        // Do any additional setup after loading the view.
+
         
+        // remove this later
         responses.append(dummyResponse)
-    }
+        
+    } // end of viewdidload
     
     
     func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {
@@ -38,8 +47,22 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     
     var responses = [Response]() {
         
+        // property observer
         didSet {
             tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 1
+        if let identifier = segue.identifier {
+            // 2
+            if identifier == "toDisplayResponse" {
+                // 3
+                print("table view cell tapped")
+            } else if identifier == "toReviews" {
+            print("folder button tapped")
+            }
         }
     }
     
@@ -50,20 +73,18 @@ extension ListResponsesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return responses.count
-    } // end of cell # func
+    } // end of cell # function
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let row = indexPath.row
         
-
         let response = responses[row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cell.listResponsesTableViewCell, for: indexPath) as! ListResponsesTableViewCell
         
         cell.respondedPromptLabel.text = "Insert completed prompt here"
-        
         cell.responseModificationTimeLabel.text = "modification time"
         
         return cell
