@@ -17,7 +17,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         
     }
     
-    // for any additional setup after loading th eview
+    // for any additional setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +40,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     
     
     func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        print("YAY")
+        performSegue(withIdentifier: Constants.Segue.toComposeResponse, sender: self)
     }
     
     let dummyResponse = Response(title: "Blah", previewText: "blah", modificationTime: "mod time")
@@ -57,7 +57,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         // 1
         if let identifier = segue.identifier {
             // 2
-            if identifier == "toDisplayResponse" {
+            if identifier == Constants.Segue.toDisplayResponse {
                 // 3
                 print("table view cell tapped")
             } else if identifier == "toReviews" {

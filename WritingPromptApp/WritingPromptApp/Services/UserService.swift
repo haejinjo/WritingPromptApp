@@ -12,9 +12,7 @@ import FirebaseAuth.FIRUser
 
 // Service structs are middle men between our app and Firebase
 
-// GOAL :Remove networking-related code from view controlleres into "service layer"
-
-// to encapsulate functionality for creating a user on FIrebase
+// GOAL :Remove networking-related code from view controlleres into "service layer" to encapsulate the functionality for creating a user on Firebase
 struct UserService {
     
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
