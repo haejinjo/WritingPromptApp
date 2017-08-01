@@ -167,7 +167,7 @@
         <!--Prompt 'o the Day-->
         <scene sceneID="48c-my-fQe">
             <objects>
-                <viewController id="3JN-xQ-IVR" sceneMemberID="viewController">
+                <viewController id="3JN-xQ-IVR" customClass="ComposeResponseViewController" customModule="WritingPromptApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zw6-ct-ikY"/>
                         <viewControllerLayoutGuide type="bottom" id="wtV-SP-3xK"/>
@@ -201,6 +201,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="promptLabel" destination="bN5-1s-91f" id="XNP-7b-a51"/>
+                        <outlet property="typeResponseTextView" destination="Afb-KR-34p" id="t5n-34-Esw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSo-Kj-4YR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WNb-PE-EEi" userLabel="Exit" sceneMemberID="exit"/>

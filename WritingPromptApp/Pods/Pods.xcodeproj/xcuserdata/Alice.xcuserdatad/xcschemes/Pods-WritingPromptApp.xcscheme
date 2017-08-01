@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C63360F4681EDF2C746397A6647AB5B1"
+               BlueprintIdentifier = "82469F742FFB5398567EBA06653930BB"
                BuildableName = "Pods_WritingPromptApp.framework"
                BlueprintName = "Pods-WritingPromptApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C63360F4681EDF2C746397A6647AB5B1"
+            BlueprintIdentifier = "82469F742FFB5398567EBA06653930BB"
             BuildableName = "Pods_WritingPromptApp.framework"
             BlueprintName = "Pods-WritingPromptApp"
             ReferencedContainer = "container:Pods.xcodeproj">

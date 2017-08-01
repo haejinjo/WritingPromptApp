@@ -24,6 +24,8 @@
 		0098C7D01F2C041400384394 /* ListResponsesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */; };
 		0098C7D21F2FA6F300384394 /* DisplayResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */; };
 		0098C7D41F2FB8F500384394 /* ComposeResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D31F2FB8F500384394 /* ComposeResponseViewController.swift */; };
+		0098C7D61F2FED2600384394 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D51F2FED2600384394 /* Prompt.swift */; };
+		0098C7D81F2FEE0000384394 /* Reddit-Hot-Prompts.json in Resources */ = {isa = PBXBuildFile; fileRef = 0098C7D71F2FEE0000384394 /* Reddit-Hot-Prompts.json */; };
 		3E0E0DF86CF20452BEE295A1 /* Pods_WritingPromptApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListResponsesTableViewCell.swift; path = Views/ListResponsesTableViewCell.swift; sourceTree = "<group>"; };
 		0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayResponseViewController.swift; path = Controllers/DisplayResponseViewController.swift; sourceTree = "<group>"; };
 		0098C7D31F2FB8F500384394 /* ComposeResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeResponseViewController.swift; path = Controllers/ComposeResponseViewController.swift; sourceTree = "<group>"; };
+		0098C7D51F2FED2600384394 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prompt.swift; path = Models/Prompt.swift; sourceTree = "<group>"; };
+		0098C7D71F2FEE0000384394 /* Reddit-Hot-Prompts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Reddit-Hot-Prompts.json"; sourceTree = "<group>"; };
 		5D15BD5458CDA23AB143CA6E /* Pods-WritingPromptApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.release.xcconfig"; sourceTree = "<group>"; };
 		A429CE38F5551CF71F7A6C7A /* Pods-WritingPromptApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WritingPromptApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WritingPromptApp/Pods-WritingPromptApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F215025668F65DEA1378DB02 /* Pods_WritingPromptApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WritingPromptApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,7 @@
 				00005C4D1F20202D001E20ED /* Supporting Files */,
 				0098C7BA1F293E9100384394 /* Services */,
 				0098C7BF1F2BBD3B00384394 /* Extensions */,
+				0098C7D91F2FEE0600384394 /* JSON */,
 			);
 			path = WritingPromptApp;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			children = (
 				0098C7B31F28005800384394 /* User.swift */,
 				0098C7C41F2BDDD900384394 /* Response.swift */,
+				0098C7D51F2FED2600384394 /* Prompt.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 				0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		0098C7D91F2FEE0600384394 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				0098C7D71F2FEE0000384394 /* Reddit-Hot-Prompts.json */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		8BEFE4CF4F31783CC78E6FFA /* Frameworks */ = {
@@ -247,6 +261,7 @@
 				00005C491F201EAA001E20ED /* LaunchScreen.storyboard in Resources */,
 				00005C551F202AB6001E20ED /* GoogleService-Info.plist in Resources */,
 				004E852E1F1EC6020015686D /* Assets.xcassets in Resources */,
+				0098C7D81F2FEE0000384394 /* Reddit-Hot-Prompts.json in Resources */,
 				00005C4A1F201EAA001E20ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0098C7D61F2FED2600384394 /* Prompt.swift in Sources */,
 				0098C7B41F28005800384394 /* User.swift in Sources */,
 				00005C511F2027F2001E20ED /* LoginViewController.swift in Sources */,
 				0098C7D21F2FA6F300384394 /* DisplayResponseViewController.swift in Sources */,
