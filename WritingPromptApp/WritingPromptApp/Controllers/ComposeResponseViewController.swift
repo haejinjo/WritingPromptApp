@@ -43,5 +43,11 @@ class ComposeResponseViewController: UIViewController {
                 print(error)
             }
         }
-    }
+        
+//        promptLabel.numberOfLines = 0
+//        promptLabel.lineBreakMode = .byWordWrapping
+//        promptLabel.frame.size.width = 300
+//        promptLabel.sizeToFit()
+        
+    } // end of viewdidload
 }
