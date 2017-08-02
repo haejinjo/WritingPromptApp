@@ -19,30 +19,8 @@ class ComposeResponseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Figure out how to get total count of hot prompts
-        let randomIndex: Int = Int(arc4random_uniform(20))
+    promptLabel.text = PromptService.todaysPrompt?.title
         
-        let apiToContact = "https://www.reddit.com/r/WritingPrompts/.json"
-        
-        Alamofire.request(apiToContact).validate().responseJSON() { response in
-            
-            switch response.result {
-            case .success:
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    
-                    let randomPromptData = json["data"]["children"][randomIndex]["data"]
-                    
-                    let randomPrompt: Prompt = Prompt(json: randomPromptData)
-                    
-                    self.promptLabel.text = randomPrompt.title
-                    
-                    print("\(randomPrompt.originalPoster)")
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
         
 //        promptLabel.numberOfLines = 0
 //        promptLabel.lineBreakMode = .byWordWrapping

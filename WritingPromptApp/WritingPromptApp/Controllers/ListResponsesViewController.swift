@@ -12,10 +12,11 @@ import UIKit
 class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
         
     }
+    
+    var prompts = [Prompt]()
     
     // for any additional setup after loading the view
     override func viewDidLoad() {
@@ -36,7 +37,22 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         // remove this later
         responses.append(dummyResponse)
         
-    } // end of viewdidload
+        // TIME SETUP
+        let todayInSeconds: Int = Int(Date().timeIntervalSince1970)
+        let numDays:Int = todayInSeconds/Constants.Time.secondsPerDay
+        let todayMidnight = numDays * Constants.Time.secondsPerDay
+        let tomorrowMidnight = todayMidnight + Constants.Time.secondsPerDay
+        
+//        checkValid { valid in
+//            if let valid = valid {
+//                PromptService.getDailyPrompt(valid)
+//            }
+//        }
+        PromptService.getAllPrompts { (prompts) in
+            self.prompts = prompts
+        }
+        
+    } // END OF VIEWDIDLOAD
     
     
     func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {

@@ -20,4 +20,8 @@ struct Constants {
     struct Cell {
         static let listResponsesTableViewCell = "listResponsesTableViewCell"
     }
+    
+    struct Time {
+        static let secondsPerDay: Int = 86400
+    }
 }
