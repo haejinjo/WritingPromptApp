@@ -19,13 +19,7 @@ class ComposeResponseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    promptLabel.text = PromptService.todaysPrompt?.title
-        
-        
-//        promptLabel.numberOfLines = 0
-//        promptLabel.lineBreakMode = .byWordWrapping
-//        promptLabel.frame.size.width = 300
-//        promptLabel.sizeToFit()
-        
+    promptLabel.text = Prompt.todaysPrompt.title
+         
     } // end of viewdidload
 }

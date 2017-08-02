@@ -17,20 +17,7 @@ import FirebaseDatabase
 //2  func that renew prompt
 //3  func that returns array of valid prompts from the internet
 struct PromptService {
-    
-    
-    // 1
-    static var todaysPrompt: Prompt?
-    
-    //2
-    static func getDailyPrompt(isValid: Bool) -> Prompt? {
 
-        // return todays prompt
-        
-        return todaysPrompt
-    }
-    
-    //3
     static func getAllPrompts(completion: @escaping (([Prompt])->Void)) {
         
         var promptArray: [Prompt] = []
@@ -52,11 +39,11 @@ struct PromptService {
                         // Create Prompt object off of reference node
                         let currentPrompt: Prompt = Prompt(json: currentPromptData)
                     
-                        // Remove the initial [WP] [CW] [OT], etc text from all incoming prompts
+                        // Remove the initial "[WP] [CW] [OT]" etc text from all incoming prompts
                         currentPrompt.title = currentPrompt.title.replacingOccurrences(of: "\\[[^\\]]+\\]", with: "", options: .regularExpression)
                         
                         // Only append to our array if it's a prompt
-                        if currentPrompt.flairText == "Writing Prompt" {
+                        if currentPromptData["link_flair_text"] == "Writing Prompt" {
                             promptArray.append(currentPrompt)
                         }
                         completion(promptArray)
@@ -77,25 +64,37 @@ struct PromptService {
         // root node of JSON dictionary
         let promptsRef = Database.database().reference().child("prompts")
         
-        // generate unique prompt ID
-        let promptID = promptsRef.childByAutoId()
-        
-        // relative path (using unique prompt ID) to where we want to write our prompt to
-        let promptRef = promptsRef.child(promptID)
-        
-        //need to create a dictionary of the data we want to store in the database
+        // relative path to a generated unique ID node where we want to write our prompt to
+        let promptRef = promptsRef.childByAutoId()
+   
+        // need to create a dictionary of the data we want to store in the database
         let dict = prompt.getDict() // NS Dict is an NSString: NSstring or NSString: NSInt
         
         // write the dictionary at the specified location
         promptRef.setValue(dict) { (error, ref) in
             if let error = error {
                 assertionFailure(error.localizedDescription)
-                return
             }
-            completion() //escaping
         }
-        
-        
     }
+    
+    
+    static func retrieve(completion: @escaping (Prompt?) -> Void) {
+        
+        let promptsRef = Database.database().reference().child("prompts")
+        
+        let newestPromptQuery = promptsRef.queryOrdered(byChild: "expyDate").queryLimited(toLast: 1)
+        
+        
+        newestPromptQuery.observeSingleEvent(of: .value, with: { (snapshot) in
+            for promptSnapshot in snapshot.children {
+                if let prompt = Prompt(snapshot: promptSnapshot as! DataSnapshot) {
+                    completion(prompt)
+                } else {
+                    completion(nil)
+                }
+            } // end of trivial "loop" thru 1-element snapshot array
+        }) //end of closure
+    } //end of retrive function
     
 } // END OF STRUCT

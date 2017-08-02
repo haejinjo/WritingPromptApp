@@ -37,17 +37,32 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         // remove this later
         responses.append(dummyResponse)
         
-        // TIME SETUP
+        // TIME SETUP HERE BECAUSE GUARANTEED USERS MUST ENTER THIS VC
         let todayInSeconds: Int = Int(Date().timeIntervalSince1970)
         let numDays:Int = todayInSeconds/Constants.Time.secondsPerDay
         let todayMidnight = numDays * Constants.Time.secondsPerDay
         let tomorrowMidnight = todayMidnight + Constants.Time.secondsPerDay
         
-//        checkValid { valid in
-//            if let valid = valid {
-//                PromptService.getDailyPrompt(valid)
-//            }
-//        }
+        
+        let olderPrompt = Prompt(title: "I'm the older prompt", originalPoster: "blah", expyDate: 1)
+        let newerPrompt = Prompt(title: "nü'er prompt", originalPoster: "blah", expyDate: 4)
+        let initialPrompt = Prompt(title: "genesis", originalPoster: "blah", expyDate: 0)
+        
+        Prompt.setTodaysPrompt(initialPrompt)
+        PromptService.create(prompt: olderPrompt)
+        PromptService.create(prompt: newerPrompt)
+        
+        
+        PromptService.retrieve() { (prompt) in
+            if let promptInQuestion = prompt {
+             if promptInQuestion.expyDate > Prompt.todaysPrompt.expyDate {
+                Prompt.setTodaysPrompt(promptInQuestion)
+             }
+                // else, todays prompt shouhld stay the same
+            }
+        } //end of retrieve func
+        
+        // to cover worst case of repeated prompts, retrieve as many prompts as possible
         PromptService.getAllPrompts { (prompts) in
             self.prompts = prompts
         }
