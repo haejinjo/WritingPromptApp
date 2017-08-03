@@ -15,7 +15,7 @@ class Prompt {
     var expyDate: Int
     var originalPoster: String
     
-    private static var _todaysPrompt: Prompt?
+    private static var _todaysPrompt: Prompt? = Prompt(title: "", originalPoster: "", expyDate: 0)
     
     static var todaysPrompt: Prompt {
         guard let todaysPrompt = _todaysPrompt else {
@@ -27,6 +27,17 @@ class Prompt {
     
     static func setTodaysPrompt(_ prompt: Prompt) {
         _todaysPrompt = prompt
+    }
+    
+    func isOlderThan(_ dateInSeconds: Int) -> Bool {
+        if self.expyDate < dateInSeconds {
+            return true
+        }
+        return false
+    }
+    
+    func setExpyDate(_ newExpyDate: Int) {
+        self.expyDate = newExpyDate
     }
     
     // json ref = ["data"]["children"][index]

@@ -18,6 +18,7 @@ import FirebaseDatabase
 //3  func that returns array of valid prompts from the internet
 struct PromptService {
 
+    // this is kinda overkill since I'm not worried about not repeating prompts for this version, but I'll keep it for now
     static func getAllPrompts(completion: @escaping (([Prompt])->Void)) {
         
         var promptArray: [Prompt] = []
@@ -46,9 +47,9 @@ struct PromptService {
                         if currentPromptData["link_flair_text"] == "Writing Prompt" {
                             promptArray.append(currentPrompt)
                         }
-                        completion(promptArray)
-             
+                        
                     } // FOR LOOP ENDS
+                    completion(promptArray)
                 }
             case .failure(let error):
                 print(error)
@@ -95,6 +96,52 @@ struct PromptService {
                 }
             } // end of trivial "loop" thru 1-element snapshot array
         }) //end of closure
-    } //end of retrive function
+        
+    } //end of retrieve function
+    
+    
+
+    static func getTodaysPrompt() {
+        // TIME SETUP HERE BECAUSE WILL CALL THIS FUNC IN LISTREPONSES VC WHICH USERS MUST GO THROUGH
+        let nowInSeconds: Int = Int(Date().timeIntervalSince1970)
+        let numDays:Int = nowInSeconds/Constants.Time.secondsPerDay
+        
+        let todayMidnight: Int = numDays * Constants.Time.secondsPerDay
+        let tomorrowMidnight: Int = todayMidnight + Constants.Time.secondsPerDay
+        
+        
+        // grab most the most recent prompt from firebase database
+        retrieve() { (prompt) in
+           
+            if let promptFromFirebase = prompt {
+                
+                // is this one expired?
+                if promptFromFirebase.isOlderThan(todayMidnight){
+                    
+                    //  grab prompts from reddit
+                    getAllPrompts { (prompts) in
+//                     for p in prompts {
+//                            create(prompt: p) // store all these prompts in FBDatabase
+//                        }
+                        
+                    // just grab an arbitrary prompt from the completion array and set its expydate to tomorrow midnight
+                    let freshPrompt = prompts[0]
+                    freshPrompt.expyDate = tomorrowMidnight
+                        
+                    // then store it into firebase
+                    create(prompt: freshPrompt)
+                        
+                    Prompt.setTodaysPrompt(freshPrompt)
+                }
+                
+                    
+                } else {   //  the current todaysPrompt shouhld stay the same
+                        Prompt.setTodaysPrompt(promptFromFirebase)
+            }
+                
+        }
+    }
+} // end of retrive func
+    
     
 } // END OF STRUCT
