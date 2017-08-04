@@ -60,7 +60,7 @@ struct PromptService {
     } // END OF getAllPrompts
     
     
-    static func create(prompt: Prompt) {
+    static func create(prompt: Prompt) -> Prompt {
         
         // root node of JSON dictionary
         let promptsRef = Database.database().reference().child("prompts")
@@ -77,6 +77,8 @@ struct PromptService {
                 assertionFailure(error.localizedDescription)
             }
         }
+        prompt.id = promptRef.key
+        return prompt
     }
     
     
@@ -124,17 +126,15 @@ struct PromptService {
 //                            create(prompt: p) // store all these prompts in FBDatabase
 //                        }
                         
-                    // just grab an arbitrary prompt from the completion array and set its expydate to tomorrow midnight
-                    let freshPrompt = prompts[0]
-                    freshPrompt.expyDate = tomorrowMidnight
-                        
-                    // then store it into firebase
-                    create(prompt: freshPrompt)
-                        
-                    Prompt.setTodaysPrompt(freshPrompt)
-                }
-                
-                    
+                        // just grab an arbitrary prompt from the completion array and set its expydate to tomorrow midnight
+                        var freshPrompt = prompts[0]
+                        freshPrompt.expyDate = tomorrowMidnight
+                            
+                        // then store it into firebase
+                        freshPrompt = create(prompt: freshPrompt)
+                            
+                        Prompt.setTodaysPrompt(freshPrompt)
+                    }
                 } else {   //  the current todaysPrompt shouhld stay the same
                         Prompt.setTodaysPrompt(promptFromFirebase)
             }

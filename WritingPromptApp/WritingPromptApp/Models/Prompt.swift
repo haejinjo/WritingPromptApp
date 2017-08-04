@@ -14,6 +14,7 @@ class Prompt {
     var title: String
     var expyDate: Int
     var originalPoster: String
+    var id: String
     
     private static var _todaysPrompt: Prompt? = Prompt(title: "", originalPoster: "", expyDate: 0)
     
@@ -45,6 +46,7 @@ class Prompt {
         self.title = json["title"].stringValue
         self.originalPoster = json["author"].stringValue
         self.expyDate = 0
+        self.id = ""
     }
     
     // testing init
@@ -52,6 +54,7 @@ class Prompt {
         self.title = title
         self.originalPoster = originalPoster
         self.expyDate = expyDate
+        self.id = "test"
     }
     
     func getDict() -> [String:Any] {
@@ -79,6 +82,7 @@ class Prompt {
         self.title = title
         self.originalPoster = originalPoster
         self.expyDate = expyDate
+        self.id = snapshot.key
        
     }
 
