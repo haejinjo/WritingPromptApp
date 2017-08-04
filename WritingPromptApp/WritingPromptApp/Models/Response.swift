@@ -10,7 +10,7 @@ import Foundation
 
 class Response {
     
-    init(title: String, previewText: String, modificationTime: String) {
+    init(title: String, previewText: String, modificationTime: Date) {
         self.title = title
         self.previewText = previewText
         self.modificationTime = modificationTime
@@ -18,6 +18,6 @@ class Response {
     
     let title: String
     let previewText: String
-    let modificationTime: String
+    let modificationTime: Date
     
 }

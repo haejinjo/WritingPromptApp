@@ -23,7 +23,6 @@
 		0098C7C51F2BDDDA00384394 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7C41F2BDDD900384394 /* Response.swift */; };
 		0098C7CC1F2BFE1400384394 /* ListResponsesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */; };
 		0098C7D01F2C041400384394 /* ListResponsesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */; };
-		0098C7D21F2FA6F300384394 /* DisplayResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */; };
 		0098C7D41F2FB8F500384394 /* ComposeResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D31F2FB8F500384394 /* ComposeResponseViewController.swift */; };
 		0098C7D61F2FED2600384394 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7D51F2FED2600384394 /* Prompt.swift */; };
 		0098C7D81F2FEE0000384394 /* Reddit-Hot-Prompts.json in Resources */ = {isa = PBXBuildFile; fileRef = 0098C7D71F2FEE0000384394 /* Reddit-Hot-Prompts.json */; };
@@ -49,7 +48,6 @@
 		0098C7C41F2BDDD900384394 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Models/Response.swift; sourceTree = "<group>"; };
 		0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListResponsesViewController.swift; path = Controllers/ListResponsesViewController.swift; sourceTree = "<group>"; };
 		0098C7CF1F2C041400384394 /* ListResponsesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListResponsesTableViewCell.swift; path = Views/ListResponsesTableViewCell.swift; sourceTree = "<group>"; };
-		0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayResponseViewController.swift; path = Controllers/DisplayResponseViewController.swift; sourceTree = "<group>"; };
 		0098C7D31F2FB8F500384394 /* ComposeResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeResponseViewController.swift; path = Controllers/ComposeResponseViewController.swift; sourceTree = "<group>"; };
 		0098C7D51F2FED2600384394 /* Prompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prompt.swift; path = Models/Prompt.swift; sourceTree = "<group>"; };
 		0098C7D71F2FEE0000384394 /* Reddit-Hot-Prompts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Reddit-Hot-Prompts.json"; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				00005C501F2027F2001E20ED /* LoginViewController.swift */,
 				0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */,
 				0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */,
-				0098C7D11F2FA6F200384394 /* DisplayResponseViewController.swift */,
 				0098C7D31F2FB8F500384394 /* ComposeResponseViewController.swift */,
 			);
 			name = "View Controllers";
@@ -327,7 +324,6 @@
 				0098C7D61F2FED2600384394 /* Prompt.swift in Sources */,
 				0098C7B41F28005800384394 /* User.swift in Sources */,
 				00005C511F2027F2001E20ED /* LoginViewController.swift in Sources */,
-				0098C7D21F2FA6F300384394 /* DisplayResponseViewController.swift in Sources */,
 				0098C7B91F293E8B00384394 /* UserService.swift in Sources */,
 				005129E11F30FCE500936683 /* PromptService.swift in Sources */,
 				0098C7D01F2C041400384394 /* ListResponsesTableViewCell.swift in Sources */,

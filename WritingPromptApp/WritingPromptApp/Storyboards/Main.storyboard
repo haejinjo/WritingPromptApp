@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,7 +52,6 @@
                                         <connections>
                                             <outlet property="respondedPromptLabel" destination="nxD-lb-tsW" id="6vL-wm-dZL"/>
                                             <outlet property="responseModificationTimeLabel" destination="U66-S4-F2l" id="MkW-Qp-Nx2"/>
-                                            <segue destination="2U2-tz-gKq" kind="show" identifier="toDisplayResponse" id="CGY-fE-bcO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -107,63 +105,7 @@
             </objects>
             <point key="canvasLocation" x="1820" y="-284"/>
         </scene>
-        <!--Past Prompt  #3389-->
-        <scene sceneID="TT1-zP-zs0">
-            <objects>
-                <viewController id="2U2-tz-gKq" customClass="DisplayResponseViewController" customModule="WritingPromptApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Smu-kc-MZb"/>
-                        <viewControllerLayoutGuide type="bottom" id="E5s-8M-MMG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Clj-TG-Dfp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fod-P7-xbH">
-                                <rect key="frame" x="16" y="131" width="343" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5c-Ln-zYn">
-                                <rect key="frame" x="16" y="64" width="343" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="YHN-eN-mfb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="leading" secondItem="Clj-TG-Dfp" secondAttribute="leadingMargin" id="8fI-s4-LwD"/>
-                            <constraint firstItem="fod-P7-xbH" firstAttribute="top" secondItem="L5c-Ln-zYn" secondAttribute="bottom" constant="4" id="RjD-uM-hiQ"/>
-                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="top" secondItem="Smu-kc-MZb" secondAttribute="bottom" id="Wxk-XU-em9"/>
-                            <constraint firstItem="E5s-8M-MMG" firstAttribute="top" secondItem="fod-P7-xbH" secondAttribute="bottom" constant="32" id="oAq-mb-hRM"/>
-                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="trailing" secondItem="fod-P7-xbH" secondAttribute="trailing" id="rqW-wG-g24"/>
-                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="leading" secondItem="fod-P7-xbH" secondAttribute="leading" id="tg0-06-62q"/>
-                            <constraint firstItem="L5c-Ln-zYn" firstAttribute="trailing" secondItem="Clj-TG-Dfp" secondAttribute="trailingMargin" id="vro-L8-BjX"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Past Prompt  #3389" id="9Ft-i4-bm4">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Qli-dH-zAo">
-                            <connections>
-                                <segue destination="ddQ-Lr-sHi" kind="unwind" identifier="backFromResponse" unwindAction="unwindToListResponsesViewController:" id="w80-Yv-ap2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="promptLabel" destination="L5c-Ln-zYn" id="OMH-MO-GXi"/>
-                        <outlet property="responseTextView" destination="fod-P7-xbH" id="elj-pE-GlB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3n9-s2-tkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ddQ-Lr-sHi" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1754" y="863"/>
-        </scene>
-        <!--Prompt 'o the Day-->
+        <!--Prompt X-->
         <scene sceneID="48c-my-fQe">
             <objects>
                 <viewController id="3JN-xQ-IVR" customClass="ComposeResponseViewController" customModule="WritingPromptApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,13 +134,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Prompt 'o the Day" id="NFn-0N-vl0">
+                    <navigationItem key="navigationItem" title="Prompt X" id="NFn-0N-vl0">
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="1XS-8h-ev2">
                             <connections>
-                                <segue destination="WNb-PE-EEi" kind="unwind" identifier="backFromComposeResponse" unwindAction="unwindToListResponsesViewController:" id="M1V-5O-3NU"/>
+                                <segue destination="WNb-PE-EEi" kind="unwind" identifier="cancel" unwindAction="unwindToListResponsesViewController:" id="EhK-42-VFG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vfZ-1X-5Sc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vfZ-1X-5Sc">
+                            <connections>
+                                <segue destination="WNb-PE-EEi" kind="unwind" identifier="save" unwindAction="unwindToListResponsesViewController:" id="Jdm-Lk-Urh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="promptLabel" destination="bN5-1s-91f" id="XNP-7b-a51"/>
