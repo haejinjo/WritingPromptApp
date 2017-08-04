@@ -18,10 +18,6 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     }
     
     var prompts = [Prompt]()
-    
-  
-    let dummyResponse = Response(title: "Blah", previewText: "blah", modificationTime: Date())
-    
     var responses = [Response]() {
         
         // property observer
@@ -29,6 +25,10 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
             tableView.reloadData()
         }
     }
+  
+//    let dummyResponse = Response(title: "Blah", previewText: "blah", modificationTime: Date())
+//    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 1
@@ -39,6 +39,16 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                 print("table view cell tapped")
             } else if identifier == "toReviews" {
                 print("folder button tapped")
+            } else if identifier == "displayResponse" {
+                print("table cell tapped")
+                
+                let indexPath = tableView.indexPathForSelectedRow!
+                
+                let response = responses[indexPath.row]
+                
+                let composeResponseViewController = segue.destination as! ComposeResponseViewController
+                
+                composeResponseViewController.response = response
             }
         }
     }
@@ -48,10 +58,6 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         PromptService.getTodaysPrompt()
-        
-        
-        // remove this later
-        responses.append(dummyResponse)
         
 
         // USING THE CUSTOM FLOATING BUTTON LIBRARY
@@ -81,6 +87,12 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         performSegue(withIdentifier: Constants.Segue.toComposeResponse, sender: self)
     }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            responses.remove(at: indexPath.row)
+//        }
+//    }
 
 } // end of class
 
@@ -102,8 +114,9 @@ extension ListResponsesViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cell.listResponsesTableViewCell, for: indexPath) as! ListResponsesTableViewCell
         
-        cell.respondedPromptLabel.text = response.title
-       // cell.responseModificationTimeLabel.text = response.modificationTime.conver
+        cell.respondedPromptLabel.text = response.promptString
+       cell.responseModificationTimeLabel.text = response.modificationTime?.convertToString()
+        cell.responsePreviewLabel.text = response.content
         
         return cell
         

@@ -116,7 +116,7 @@ struct PromptService {
             if let promptFromFirebase = prompt {
                 
                 // is this one expired?
-                if promptFromFirebase.isOlderThan(todayMidnight){
+                if promptFromFirebase.isOlderThan(nowInSeconds){
                     
                     //  grab prompts from reddit
                     getAllPrompts { (prompts) in

@@ -10,14 +10,16 @@ import Foundation
 
 class Response {
     
-    init(title: String, previewText: String, modificationTime: Date) {
-        self.title = title
-        self.previewText = previewText
+    
+    init(prompt: Prompt, modificationTime: Date) {
+        self.promptString = prompt.title
         self.modificationTime = modificationTime
+        self.content = ""
     }
     
-    let title: String
-    let previewText: String
-    let modificationTime: Date
+  
+    var promptString: String
+    let modificationTime: Date?
+    var content: String
     
 }

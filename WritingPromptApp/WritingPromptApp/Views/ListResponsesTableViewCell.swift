@@ -27,6 +27,7 @@ class ListResponsesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var responseModificationTimeLabel: UILabel!
     
+    @IBOutlet weak var responsePreviewLabel: UILabel!
     
 
 }
