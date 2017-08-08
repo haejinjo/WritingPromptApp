@@ -25,10 +25,6 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
             tableView.reloadData()
         }
     }
-  
-//    let dummyResponse = Response(title: "Blah", previewText: "blah", modificationTime: Date())
-//    
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 1
@@ -48,6 +44,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                 
                 let composeResponseViewController = segue.destination as! ComposeResponseViewController
                 
+                // pass to next VC
                 composeResponseViewController.response = response
             }
         }
@@ -57,8 +54,8 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     // for any additional setup after loading the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        PromptService.getTodaysPrompt()
         
+        PromptService.getTodaysPrompt()
 
         // USING THE CUSTOM FLOATING BUTTON LIBRARY
         let floatingButton = MEVFloatingButton()
@@ -71,7 +68,11 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         self.tableView.setFloatingButton(floatingButton)
         self.tableView.floatingButtonDelegate = self
 
-
+        
+        ResponseService.retrieve{ (responsesArray) in
+            self.responses = responsesArray
+        }
+        
        // DUMMY PROMPTS FOR TESTING
 //        let olderPrompt = Prompt(title: "I'm the older prompt", originalPoster: "blah", expyDate: 1)
 //        let newerPrompt = Prompt(title: "nü'er prompt", originalPoster: "blah", expyDate: 4)
@@ -82,7 +83,6 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         
 
     } // END OF VIEWDIDLOAD
-    
     
     func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         performSegue(withIdentifier: Constants.Segue.toComposeResponse, sender: self)
@@ -115,7 +115,7 @@ extension ListResponsesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cell.listResponsesTableViewCell, for: indexPath) as! ListResponsesTableViewCell
         
         cell.respondedPromptLabel.text = response.promptString
-       cell.responseModificationTimeLabel.text = response.modificationTime?.convertToString()
+        cell.responseModificationTimeLabel.text = response.modificationTime?.convertToString()
         cell.responsePreviewLabel.text = response.content
         
         return cell

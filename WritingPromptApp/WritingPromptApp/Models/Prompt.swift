@@ -14,7 +14,7 @@ class Prompt {
     var title: String
     var expyDate: Int
     var originalPoster: String
-    var id: String
+    var pid: String
     
     private static var _todaysPrompt: Prompt? = Prompt(title: "", originalPoster: "", expyDate: 0)
     
@@ -30,6 +30,7 @@ class Prompt {
         _todaysPrompt = prompt
     }
     
+    // Use expy dates to compare
     func isOlderThan(_ dateInSeconds: Int) -> Bool {
         if self.expyDate < dateInSeconds {
             return true
@@ -42,19 +43,21 @@ class Prompt {
     }
     
     // json ref = ["data"]["children"][index]
+    // extract the necessary Prompt ingredients from a JSON
     init(json: JSON) {
         self.title = json["title"].stringValue
         self.originalPoster = json["author"].stringValue
         self.expyDate = 0
-        self.id = ""
+        self.pid = ""
     }
     
     // testing init
+    // hardcode the necessary Prompt ingredients
     init(title: String, originalPoster: String, expyDate: Int) {
         self.title = title
         self.originalPoster = originalPoster
         self.expyDate = expyDate
-        self.id = "test"
+        self.pid = "test"
     }
     
     func getDict() -> [String:Any] {
@@ -67,7 +70,7 @@ class Prompt {
     }
     
     
-//    // Create a new prompt based off a data snapshot
+//    extract the necessary Prompt ingredients from a data snapshot of an FB database
     init?(snapshot: DataSnapshot) {
         
         // two requirements, else return nil!!!
@@ -82,7 +85,7 @@ class Prompt {
         self.title = title
         self.originalPoster = originalPoster
         self.expyDate = expyDate
-        self.id = snapshot.key
+        self.pid = snapshot.key
        
     }
 

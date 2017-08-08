@@ -17,27 +17,28 @@ struct UserService {
     
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
         
-        
         let ref = Database.database().reference().child("users").child(firUser.uid)
         
          // create a dict to properly store the name provided by user into our database
         let userAttrs = ["username": username]
         
-        // write data we want to store in FBdatabase
-        ref.setValue(userAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-                return completion(nil)
-            }
+        // write dict data we want to store at the uid child node (ref variable) in FBdatabase
+            ref.setValue(userAttrs) { (error, ref) in
+                
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                    return completion(nil)
+                }
             
-            // read user data we just wrote to FBdatabase and create new User object from itbu
+        // read user data we just wrote to FBdatabase and create new User object from it
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 let user = User(snapshot: snapshot)
                 completion(user)
                 
             })
-        }
-    }
+        } // end of setValue
+        
+    } // end of CREATE
     
     static func show(forUID uid: String, completion: @escaping (User?) -> Void) {
       
@@ -54,6 +55,6 @@ struct UserService {
             
             completion(user)
         })
-    }
+    } // end of SHOW
 
 } // END OF STRUCT

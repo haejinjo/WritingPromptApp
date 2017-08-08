@@ -11,10 +11,13 @@ import SwiftyJSON
 import Alamofire
 import AlamofireNetworkActivityIndicator
 
+
+// THIS VC WILL EITHER CONTAIN A TODAYS NEEW PROMPT CANVAS or A VIEW OF A PREVIOUSLY RESPONDED-TO PROMPT
 class ComposeResponseViewController: UIViewController {
 
-    // when user taps cell, must pass the corresponding note to this VC so it can be displayed (and maybe modified? up2u)
+    // when user taps cell, must pass the corresponding response to this VC so it can be displayed (and maybe modified? up2u)
     var response: Response?
+    
     @IBOutlet weak var typeResponseTextView: UITextView!
     @IBOutlet weak var promptLabel: UILabel!
     var userIsComposing: Bool = true
@@ -30,13 +33,14 @@ class ComposeResponseViewController: UIViewController {
             userIsComposing = false
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if userIsComposing {
             promptLabel.text = Prompt.todaysPrompt.title
         }
-    } // end of viewdidload
+    } // END OF viewdidload
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -46,17 +50,17 @@ class ComposeResponseViewController: UIViewController {
                 print("save tapped")
                 
                 
-                if let response = response { // if user is modifying/viewing existing response
-                    response.promptString = promptLabel.text ?? ""
+                // if user tapped a cell to modify existing response
+                if let response = response {
                     response.content = typeResponseTextView.text ?? ""
                     
-                } else { // user is composing
                     
-                    // create new response instance using todays prompt and current time
-                    let newResponse = Response(prompt: Prompt.todaysPrompt, modificationTime: Date())
-                
-                    // set new response content to whatever the user typed in
-                    newResponse.content = typeResponseTextView.text ?? ""
+                } else { // user tapped compose so prep accordingly
+                    
+                    // create new Response object using todays prompt + current time + whatever user typed in textview
+                    var newResponse = Response(prompt: Prompt.todaysPrompt, modificationTime: Date(), content: typeResponseTextView.text)
+                    
+                    newResponse = ResponseService.create(response: newResponse)
                 
                     let listResponsesViewController = segue.destination as! ListResponsesViewController
 
@@ -69,6 +73,6 @@ class ComposeResponseViewController: UIViewController {
 
         
         
-    } // end of prepare for func
+    } // END OF prepare
 
 }

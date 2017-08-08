@@ -27,6 +27,7 @@ class CreateUsernameViewController: UIViewController {
             guard let user = user else {return}
             
             print("Created new user: \(user.username)")
+            
             User.setCurrent(user)
             
             // create instance of main storyboard

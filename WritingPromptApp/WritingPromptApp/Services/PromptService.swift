@@ -18,8 +18,8 @@ import FirebaseDatabase
 //3  func that returns array of valid prompts from the internet
 struct PromptService {
 
-    // this is kinda overkill since I'm not worried about not repeating prompts for this version, but I'll keep it for now
-    static func getAllPrompts(completion: @escaping (([Prompt])->Void)) {
+    // overkill since repeating prompts ok for this version, but keep it for now
+    static func getAllPrompts(completion: @escaping ([Prompt])->Void) {
         
         var promptArray: [Prompt] = []
         let apiToContact = "https://www.reddit.com/r/WritingPrompts/.json"
@@ -47,10 +47,11 @@ struct PromptService {
                         if currentPromptData["link_flair_text"] == "Writing Prompt" {
                             promptArray.append(currentPrompt)
                         }
-                        
                     } // FOR LOOP ENDS
+                    
                     completion(promptArray)
                 }
+                
             case .failure(let error):
                 print(error)
             }
@@ -77,7 +78,9 @@ struct PromptService {
                 assertionFailure(error.localizedDescription)
             }
         }
-        prompt.id = promptRef.key
+        
+        prompt.pid = promptRef.key
+        
         return prompt
     }
     
@@ -126,7 +129,7 @@ struct PromptService {
 //                            create(prompt: p) // store all these prompts in FBDatabase
 //                        }
                         
-                        // just grab an arbitrary prompt from the completion array and set its expydate to tomorrow midnight
+                        // just grab arbitrary prompt from the completion array and set its expydate to tomorrow midnight
                         var freshPrompt = prompts[0]
                         freshPrompt.expyDate = tomorrowMidnight
                             
