@@ -106,6 +106,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
             floatingButton.image = #imageLiteral(resourceName: "icons8-Pencil-48")
         } else {
             floatingButton.image = #imageLiteral(resourceName: "icons8-Checked-528")
+            floatingButton.backgroundColor = UIColor(red:0.33, green:0.66, blue:0.29, alpha:1.0)
             floatingButton.isUserInteractionEnabled = false
         }
         
