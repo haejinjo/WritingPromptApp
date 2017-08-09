@@ -24,4 +24,10 @@ struct Constants {
     struct Time {
         static let secondsPerDay: Int = 86400
     }
+    
+    struct UserDefaults {
+        static let currentUser = "currentUser"
+        static let uid = "uid"
+        static let username = "username"
+    }
 }

@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingPromptApp/Services/PromptService.swift"
@@ -22,7 +22,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingPromptApp/Services/PromptService.swift"
@@ -58,12 +58,12 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "523923658.835122"
+                  timestampString = "523992900.317183"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
                   endingLineNumber = "41"
-                  offsetFromSymbolStart = "332">
+                  offsetFromSymbolStart = "383">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "523923658.838271"
+                  timestampString = "523992900.323729"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -122,12 +122,12 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "523923658.854465"
+                  timestampString = "523992900.347556"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "68">
+                  offsetFromSymbolStart = "63">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -137,12 +137,12 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "523923658.860609"
+                  timestampString = "523992900.351636"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "23">
                </Location>
             </Locations>
          </BreakpointContent>

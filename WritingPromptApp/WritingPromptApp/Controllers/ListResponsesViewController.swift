@@ -11,6 +11,7 @@ import UIKit
 
 class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
+    let floatingButton = MEVFloatingButton()
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
@@ -52,7 +53,8 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-    }
+        
+            }
 
     // for any additional setup after loading the view
     override func viewDidLoad() {
@@ -61,19 +63,26 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         PromptService.getTodaysPrompt()
 
         // USING THE CUSTOM FLOATING BUTTON LIBRARY
-        let floatingButton = MEVFloatingButton()
+
         floatingButton.animationType = .MEVFloatingButtonAnimationFromBottom
         floatingButton.displayMode = .always
         floatingButton.position = .bottomCenter
-        floatingButton.image = #imageLiteral(resourceName: "icons8-Pencil-48")
         floatingButton.isRounded = true
+        floatingButton.image = #imageLiteral(resourceName: "icons8-Pencil-48")
         
+        
+
         self.tableView.setFloatingButton(floatingButton)
         self.tableView.floatingButtonDelegate = self
 
-        
+// TO DO: LOGO, RACE CONDITION, PERSISTENT LOGIN
         ResponseService.retrieve{ (responsesArray) in
             self.responses = responsesArray
+            for completedResponse in self.responses {
+                if completedResponse.pid == Prompt.todaysPrompt.pid {
+                    self.floatingButton.image = #imageLiteral(resourceName: "icons8-Checked-528")
+                }
+            }
         }
         
        // DUMMY PROMPTS FOR TESTING

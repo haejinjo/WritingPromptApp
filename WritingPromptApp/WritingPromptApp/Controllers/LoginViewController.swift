@@ -19,14 +19,11 @@ class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var getStartedButton: UIButton!
-    
     @IBAction func getStartedButtonTapped(_ sender: UIButton) {
-        
         print("tapped get started")
     }
     
     @IBOutlet weak var signInButton: UIButton!
-    
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         print("tapped sign in here")
         
@@ -51,7 +48,7 @@ extension LoginViewController: FUIAuthDelegate {
         if let user = user {
             UserService.show(forUID: user.uid) { (user) in
                 if let user = user {
-                    User.setCurrent(user)
+                    User.setCurrent(user, writeToUserDefaults: true)
                     
                     //                let storyboard = UIStoryboard(name: "Main", bundle: .main)
                     //
