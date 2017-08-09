@@ -50,6 +50,9 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     // for any additional setup after loading the view
     override func viewDidLoad() {

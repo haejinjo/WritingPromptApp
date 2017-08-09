@@ -53,7 +53,9 @@ class ComposeResponseViewController: UIViewController {
                 // if user tapped a cell to modify existing response
                 if let response = response {
                     response.content = typeResponseTextView.text ?? ""
+                    response.modificationTime = Date()
                     
+                    ResponseService.update(response: response)
                     
                 } else { // user tapped compose so prep accordingly
                     

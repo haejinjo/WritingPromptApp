@@ -12,13 +12,13 @@ import FirebaseDatabase
 struct ResponseService {
     
     static let ref = Database.database().reference()
-    
+    static let responsesRef = ref.child("responses")
     // create an object for this response in databse
     
     static func create(response: Response) -> Response {
         
         
-        let responsesRef = ref.child("responses")
+        
         
         let responseRef = responsesRef.childByAutoId()
         
@@ -35,9 +35,14 @@ struct ResponseService {
     }
     
     static func update(response: Response) {
-        
-        response.modificationTime = Date()
-        
+    
+        let dict = response.getUpdatedDict()
+        let updatedResponseRef = responsesRef.child("\(response.rid)")
+        updatedResponseRef.updateChildValues(dict) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+            }
+        }
     }
     
     

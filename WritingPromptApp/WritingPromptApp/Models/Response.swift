@@ -30,6 +30,14 @@ class Response {
         return responseDict
     }
     
+    func getUpdatedDict() -> [String: Any] {
+        var dict = [String:Any]()
+        dict["modificationTime"] = self.modificationTime?.timeIntervalSince1970
+        dict["content"] = self.content
+        
+        return dict
+    }
+    
     // Natural
     init(prompt: Prompt, modificationTime: Date, content: String) {
         self.promptString = prompt.title
