@@ -11,7 +11,7 @@ import UIKit
 
 class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
-    let floatingButton = MEVFloatingButton()
+    var floatingButton = MEVFloatingButton()
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
@@ -60,31 +60,27 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PromptService.getTodaysPrompt()
-
-        // USING THE CUSTOM FLOATING BUTTON LIBRARY
-
-        floatingButton.animationType = .MEVFloatingButtonAnimationFromBottom
-        floatingButton.displayMode = .always
-        floatingButton.position = .bottomCenter
-        floatingButton.isRounded = true
-        floatingButton.image = #imageLiteral(resourceName: "icons8-Pencil-48")
-        
-        
-
-        self.tableView.setFloatingButton(floatingButton)
-        self.tableView.floatingButtonDelegate = self
-
-// TO DO: LOGO, RACE CONDITION, PERSISTENT LOGIN
-        ResponseService.retrieve{ (responsesArray) in
-            self.responses = responsesArray
-            for completedResponse in self.responses {
-                if completedResponse.pid == Prompt.todaysPrompt.pid {
-                    self.floatingButton.image = #imageLiteral(resourceName: "icons8-Checked-528")
+        PromptService.getTodaysPrompt(with: {
+            
+            ResponseService.retrieve{ (responsesArray) in
+                
+                for completedResponse in self.responses {
+                    if completedResponse.pid == Prompt.todaysPrompt.pid {
+                        self.floatingButton = self.setUpFloatingButton(hasResponded: true)
+                        self.tableView.setFloatingButton(self.floatingButton)
+                    }
                 }
+
+                self.tableView.floatingButtonDelegate = self
+                self.responses = responsesArray
+                self.tableView.reloadData()
             }
-        }
-        
+            
+        }) // end of gettodaysprompt completion block
+
+         floatingButton = setUpFloatingButton(hasResponded: false)
+        self.tableView.setFloatingButton(floatingButton)
+ 
        // DUMMY PROMPTS FOR TESTING
 //        let olderPrompt = Prompt(title: "I'm the older prompt", originalPoster: "blah", expyDate: 1)
 //        let newerPrompt = Prompt(title: "nü'er prompt", originalPoster: "blah", expyDate: 4)
@@ -96,6 +92,25 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
     } // END OF VIEWDIDLOAD
     
+    
+    func setUpFloatingButton(hasResponded: Bool) -> MEVFloatingButton {
+        // USING THE CUSTOM FLOATING BUTTON LIBRARY
+        
+        let floatingButton = MEVFloatingButton()
+        floatingButton.animationType = .MEVFloatingButtonAnimationFromBottom
+        floatingButton.displayMode = .always
+        floatingButton.position = .bottomCenter
+        floatingButton.isRounded = true
+        
+        if hasResponded {
+            floatingButton.image = #imageLiteral(resourceName: "icons8-Pencil-48")
+        } else {
+            floatingButton.image = #imageLiteral(resourceName: "icons8-Checked-528")
+            floatingButton.isUserInteractionEnabled = false
+        }
+        
+        return floatingButton
+    }
     func floatingButton(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         performSegue(withIdentifier: Constants.Segue.toComposeResponse, sender: self)
     }

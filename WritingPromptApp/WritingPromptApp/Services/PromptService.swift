@@ -106,7 +106,7 @@ struct PromptService {
     
     
 
-    static func getTodaysPrompt() {
+    static func getTodaysPrompt(with completion: @escaping (Void) -> Void) {
         // TIME SETUP HERE BECAUSE WILL CALL THIS FUNC IN LISTREPONSES VC WHICH USERS MUST GO THROUGH
         let nowInSeconds: Int = Int(Date().timeIntervalSince1970)
         let numDays:Int = nowInSeconds/Constants.Time.secondsPerDay
@@ -130,7 +130,7 @@ struct PromptService {
 //                        }
                         
                         // just grab arbitrary prompt from the completion array and set its expydate to tomorrow midnight
-                        var freshPrompt = prompts[16]
+                        var freshPrompt = prompts[0]
                         freshPrompt.expyDate = tomorrowMidnight
                             
                         // then store it into firebase
@@ -141,7 +141,7 @@ struct PromptService {
                 } else {   //  the current todaysPrompt shouhld stay the same
                         Prompt.setTodaysPrompt(promptFromFirebase)
             }
-                
+            completion()
         }
     }
 } // end of retrive func
