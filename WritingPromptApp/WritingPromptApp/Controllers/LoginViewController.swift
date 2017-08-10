@@ -16,22 +16,14 @@ typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController {
     
-    
+    @IBAction func unwindToLoginViewController(_ segue: UIStoryboardSegue) {
+        print("unwinded to login vc")
+    }
     
     @IBOutlet weak var getStartedButton: UIButton!
     @IBAction func getStartedButtonTapped(_ sender: UIButton) {
         print("tapped get started")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getStartedButton.layer.cornerRadius = 6
-    }
-    
-    @IBOutlet weak var signInButton: UIButton!
-    @IBAction func signInButtonTapped(_ sender: UIButton) {
-        print("tapped sign in here")
-        
+
         guard let authUI = FUIAuth.defaultAuthUI()
             else {return}
         
@@ -39,6 +31,12 @@ class LoginViewController: UIViewController {
         
         let authViewController = authUI.authViewController()
         present(authViewController, animated: true)
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getStartedButton.layer.cornerRadius = 6
     }
     
 }
@@ -58,8 +56,9 @@ extension LoginViewController: FUIAuthDelegate {
                     
                     
                     let initialViewController = UIStoryboard.initialViewController(for: .main)
-                    self.view.window?.rootViewController = initialViewController
-                    self.view.window?.makeKeyAndVisible()
+                    self.present(initialViewController, animated: true, completion: nil)
+//                    self.view.window?.rootViewController = initialViewController
+//                    self.view.window?.makeKeyAndVisible()
                     
                     print("Welcome back \(user.username).")
                 } else {

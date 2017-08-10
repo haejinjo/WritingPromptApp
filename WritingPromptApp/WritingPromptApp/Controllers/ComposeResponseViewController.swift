@@ -57,7 +57,7 @@ class ComposeResponseViewController: UIViewController {
                     
                     ResponseService.update(response: response)
                     
-                } else { // user tapped compose so prep accordingly
+                } else { // user came here after tapping compose so prep accordingly
                     
                     // create new Response object using todays prompt + current time + whatever user typed in textview
                     var newResponse = Response(prompt: Prompt.todaysPrompt, modificationTime: Date(), content: typeResponseTextView.text)

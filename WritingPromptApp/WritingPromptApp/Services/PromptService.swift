@@ -130,7 +130,7 @@ struct PromptService {
 //                        }
                         
                         // just grab arbitrary prompt from the completion array and set its expydate to tomorrow midnight
-                        var freshPrompt = prompts[8]
+                        var freshPrompt = prompts[0]
                         freshPrompt.expyDate = tomorrowMidnight
                             
                         // then store it into firebase

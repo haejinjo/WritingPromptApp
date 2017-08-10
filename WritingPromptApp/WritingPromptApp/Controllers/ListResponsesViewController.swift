@@ -6,13 +6,29 @@
 //  Copyright © 2017 Haejin Jo. All rights reserved.
 //
 import MEVFloatingButton
-
+import Firebase
+import FirebaseAuth
 import UIKit
 
 class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
-    var floatingButton = MEVFloatingButton()
+  //  var floatingButton = MEVFloatingButton()
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var logOutButton: UIBarButtonItem!
+    
+    @IBAction func logOutTapped(_ sender: Any) {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError.localizedDescription)
+        }
+        
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    } // END OF logoutaction
     
     @IBAction func composeButtonTouchUpInside(_ sender: UIButton) {
         
@@ -23,6 +39,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
         
     }
+    
     
     var prompts = [Prompt]()
     var responses = [Response]() {
@@ -64,7 +81,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         PromptService.getTodaysPrompt(with: {
             
             ResponseService.retrieve{ (responsesArray) in
-                //       var matched = false
+                       var matched = false
                 for completedResponse in responsesArray {
                     if completedResponse.pid == Prompt.todaysPrompt.pid {
                         
@@ -76,12 +93,14 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                         
                         //                        self.tableView.setNeedsLayout()
                         //                        self.tableView.setFloatingButton(self.floatingButton)
-                        //                        matched = true
+                                                matched = true
                     }
                 }
-                //                if !matched {
-                //                    self.setUpFloatingButton(hasResponded: false)
-                //                }
+                if !matched {
+                    
+                    self.composeButton.backgroundColor = UIColor(colorLiteralRed: 83/255.0, green: 168/255.0, blue: 210/255.0, alpha: 1.0)
+                    self.composeButton.isUserInteractionEnabled = true
+                }
                 //                self.tableView.setNeedsLayout()
                 self.responses = responsesArray
                 self.tableView.reloadData()
@@ -103,7 +122,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
         self.composeButton.layer.cornerRadius = 40
         
-        
+        self.composeButton.backgroundColor = UIColor.lightGray
         
  
        // DUMMY PROMPTS FOR TESTING
@@ -154,7 +173,11 @@ extension ListResponsesViewController: UITableViewDataSource {
     
     // how many cells?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.title = "\(responses.count) Responses"
+        if responses.count != 1 {
+           self.title = "\(responses.count) Responses"
+        } else {
+            self.title = "\(responses.count) Response"
+        }
         return responses.count
     } // end of cell # function
     

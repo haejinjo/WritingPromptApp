@@ -21,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pU-rb-Nxt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pU-rb-Nxt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listResponsesTableViewCell" rowHeight="73" id="zf7-PW-0kX" customClass="ListResponsesTableViewCell" customModule="WritingPromptApp" customModuleProvider="target">
@@ -69,7 +68,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WOb-KQ-F0U"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcw-Yq-6Li">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcw-Yq-6Li">
                                 <rect key="frame" x="148" y="571" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.6588235294" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -84,19 +83,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9pU-rb-Nxt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ghv-jt-4R9"/>
                             <constraint firstItem="jcw-Yq-6Li" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IbH-KV-W9K"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9pU-rb-Nxt" secondAttribute="bottom" id="XQc-Wo-MNv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jcw-Yq-6Li" secondAttribute="bottom" constant="16" id="cfM-Sg-fW8"/>
+                            <constraint firstItem="9pU-rb-Nxt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="km7-UB-RbJ"/>
+                            <constraint firstAttribute="trailing" secondItem="9pU-rb-Nxt" secondAttribute="trailing" id="xHo-gh-Y8F"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zxz-j2-kfn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="g5x-sv-c0Q">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Gry-xU-02W">
                             <connections>
-                                <segue destination="AAY-gH-j3j" kind="show" identifier="toReviews" id="60J-w8-0w1"/>
+                                <action selector="logOutTapped:" destination="BYZ-38-t0r" id="Cac-GF-WOE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="composeButton" destination="jcw-Yq-6Li" id="njD-4V-Phf"/>
+                        <outlet property="logOutButton" destination="Gry-xU-02W" id="ay7-Pb-Dq7"/>
                         <outlet property="tableView" destination="9pU-rb-Nxt" id="y0a-VP-hsr"/>
                         <segue destination="3JN-xQ-IVR" kind="show" identifier="toComposeResponse" id="YBH-SP-Ghs"/>
                     </connections>

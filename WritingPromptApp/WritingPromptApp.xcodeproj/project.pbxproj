@@ -17,6 +17,7 @@
 		005129E11F30FCE500936683 /* PromptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005129E01F30FCE500936683 /* PromptService.swift */; };
 		005129E31F34EA5900936683 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005129E21F34EA5800936683 /* Date+convertToString.swift */; };
 		005129E51F35291D00936683 /* ResponseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005129E41F35291D00936683 /* ResponseService.swift */; };
+		005129E71F3CCA2900936683 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005129E61F3CCA2900936683 /* CreditsViewController.swift */; };
 		0098C7B41F28005800384394 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B31F28005800384394 /* User.swift */; };
 		0098C7B71F2803EA00384394 /* CreateUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */; };
 		0098C7B91F293E8B00384394 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098C7B81F293E8B00384394 /* UserService.swift */; };
@@ -44,6 +45,7 @@
 		005129E01F30FCE500936683 /* PromptService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptService.swift; path = Services/PromptService.swift; sourceTree = "<group>"; };
 		005129E21F34EA5800936683 /* Date+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+convertToString.swift"; path = "Extensions/Date+convertToString.swift"; sourceTree = "<group>"; };
 		005129E41F35291D00936683 /* ResponseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseService.swift; path = Services/ResponseService.swift; sourceTree = "<group>"; };
+		005129E61F3CCA2900936683 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsViewController.swift; path = Controllers/CreditsViewController.swift; sourceTree = "<group>"; };
 		0098C7B31F28005800384394 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUsernameViewController.swift; path = Controllers/CreateUsernameViewController.swift; sourceTree = "<group>"; };
 		0098C7B81F293E8B00384394 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				0098C7B61F2803EA00384394 /* CreateUsernameViewController.swift */,
 				0098C7CB1F2BFE1400384394 /* ListResponsesViewController.swift */,
 				0098C7D31F2FB8F500384394 /* ComposeResponseViewController.swift */,
+				005129E61F3CCA2900936683 /* CreditsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				0098C7D61F2FED2600384394 /* Prompt.swift in Sources */,
 				005129E31F34EA5900936683 /* Date+convertToString.swift in Sources */,
 				0098C7B41F28005800384394 /* User.swift in Sources */,
+				005129E71F3CCA2900936683 /* CreditsViewController.swift in Sources */,
 				00005C511F2027F2001E20ED /* LoginViewController.swift in Sources */,
 				0098C7B91F293E8B00384394 /* UserService.swift in Sources */,
 				005129E11F30FCE500936683 /* PromptService.swift in Sources */,

@@ -70,8 +70,9 @@ struct ResponseService {
                 }
                 
             // --------------------the resolution!------------------------
-            completion(responseArray)
+            
             }
+            completion(responseArray)
         })
         
     } //END of retrieve function
