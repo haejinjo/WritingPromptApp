@@ -104,8 +104,13 @@ struct PromptService {
         
     } //end of retrieve function
     
+    static func getPrompt(withIdentifier: String, completion: @escaping (Prompt?) -> Void)
+    {
+        Database.database().reference().child("prompts").child(withIdentifier).observeSingleEvent(of: .value, with: { (returnedSnapshot) in
+            completion(Prompt(snapshot: returnedSnapshot))
+        })
+    }
     
-
     static func getTodaysPrompt(with completion: @escaping (Void) -> Void) {
         // TIME SETUP HERE BECAUSE WILL CALL THIS FUNC IN LISTREPONSES VC WHICH USERS MUST GO THROUGH
         let nowInSeconds: Int = Int(Date().timeIntervalSince1970)

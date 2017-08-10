@@ -12,10 +12,14 @@ import UIKit
 
 class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
+    
   //  var floatingButton = MEVFloatingButton()
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var logOutButton: UIBarButtonItem!
+    
+    @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
+        print("unwinded to list responses vc")
+    }
     
     @IBAction func logOutTapped(_ sender: Any) {
         
@@ -36,10 +40,9 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     }
     
     @IBOutlet weak var composeButton: UIButton!
-    @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
-        
-    }
+
     
+    var promptToPush: Prompt?
     
     var prompts = [Prompt]()
     var responses = [Response]() {
@@ -59,7 +62,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                 print("table view cell tapped")
             } else if identifier == "toReviews" {
                 print("folder button tapped")
-            } else if identifier == "displayResponse" {
+            } else if identifier == "toComposeResponse" {
                 print("table cell tapped")
                 
                 let indexPath = tableView.indexPathForSelectedRow!
@@ -68,8 +71,13 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                 
                 let composeResponseViewController = segue.destination as! ComposeResponseViewController
                 
-                // pass to next VC
+                // pass response and prompt objects to the next VC
                 composeResponseViewController.response = response
+                
+                if let temporaryPromptToPush = promptToPush
+                {
+                    composeResponseViewController.respondedPrompt = temporaryPromptToPush
+                }
             }
         }
     }
@@ -169,7 +177,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 } // end of class
 
 
-extension ListResponsesViewController: UITableViewDataSource {
+extension ListResponsesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // how many cells?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -198,6 +206,22 @@ extension ListResponsesViewController: UITableViewDataSource {
         return cell
         
     } //end of cell display func
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        PromptService.getPrompt(withIdentifier: responses[indexPath.row].pid, completion: { (returnedPrompt) in
+            if let temporaryReturnedPrompt = returnedPrompt
+            {
+                self.promptToPush = temporaryReturnedPrompt
+
+                self.performSegue(withIdentifier: "toComposeResponse", sender: self)
+            }
+            else
+            {
+                print("nothing")
+            }
+        })
+    }
     
 } // end of data source extension
 

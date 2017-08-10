@@ -58,7 +58,7 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "524080519.999746"
+                  timestampString = "524090689.908019"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -73,7 +73,7 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "524080520.002685"
+                  timestampString = "524090689.910926"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingPromptApp/Controllers/ComposeResponseViewController.swift"
-            timestampString = "523923290.535452"
+            timestampString = "524090688.289801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,7 +122,7 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "524080520.019176"
+                  timestampString = "524090689.920391"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -137,7 +137,7 @@
                   moduleName = "WritingPromptApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Alice/Desktop/WritingPromptAppFolder/WritingPromptApp/WritingPromptApp/Services/ResponseService.swift"
-                  timestampString = "524080520.025524"
+                  timestampString = "524090689.922196"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -150,48 +150,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WritingPromptApp/Controllers/ListResponsesViewController.swift"
-            timestampString = "524028510.49717"
+            filePath = "WritingPromptApp/Services/PromptService.swift"
+            timestampString = "524089317.530228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingPromptApp/Controllers/ListResponsesViewController.swift"
-            timestampString = "524028512.896673"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WritingPromptApp/Controllers/ListResponsesViewController.swift"
-            timestampString = "524028694.84007"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "getTodaysPrompt(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
