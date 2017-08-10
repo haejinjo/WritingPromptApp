@@ -23,6 +23,11 @@ class LoginViewController: UIViewController {
         print("tapped get started")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getStartedButton.layer.cornerRadius = 6
+    }
+    
     @IBOutlet weak var signInButton: UIButton!
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         print("tapped sign in here")
