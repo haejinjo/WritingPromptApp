@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingPromptApp/Controllers/ComposeResponseViewController.swift"
-            timestampString = "524126646.205954"
+            timestampString = "524127216.983264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
             <Locations>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingPromptApp/Controllers/ComposeResponseViewController.swift"
-            timestampString = "524126684.04192"
+            timestampString = "524127216.983264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "originalPosterButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>

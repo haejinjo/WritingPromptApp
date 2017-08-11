@@ -105,9 +105,6 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
     }
     
-
-    // link to reddit user 
-    // improve spotty reddit head (resize original image and use that smaller version instead to avoid pixel sampling)
     // make keyboard show up static in compose response VC
     
     func prepare() {

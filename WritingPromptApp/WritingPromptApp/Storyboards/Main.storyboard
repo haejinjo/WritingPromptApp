@@ -194,10 +194,11 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-KR-34p">
-                                <rect key="frame" x="18" y="196" width="340" height="275"/>
+                                <rect key="frame" x="18" y="196" width="340" height="175"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="Ke5-1h-YCF"/>
+                                    <constraint firstAttribute="height" constant="175" id="PP3-tW-Tld"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -206,7 +207,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Afb-KR-34p" firstAttribute="centerY" secondItem="lX5-vZ-OQN" secondAttribute="centerY" id="2ue-Rv-3c9"/>
                             <constraint firstItem="Afb-KR-34p" firstAttribute="centerX" secondItem="lX5-vZ-OQN" secondAttribute="centerX" id="ON6-aQ-63H"/>
                             <constraint firstItem="Afb-KR-34p" firstAttribute="top" secondItem="ZjX-Hp-LVZ" secondAttribute="bottom" id="fSx-nz-Rwd"/>
                             <constraint firstItem="ZjX-Hp-LVZ" firstAttribute="centerX" secondItem="lX5-vZ-OQN" secondAttribute="centerX" id="gdw-IR-nm9"/>

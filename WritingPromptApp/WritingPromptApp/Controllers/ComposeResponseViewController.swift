@@ -35,6 +35,10 @@ class ComposeResponseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        typeResponseTextView.becomeFirstResponder()
+        let bottom = NSMakeRange(typeResponseTextView.text.characters.count - 1, 1)
+        typeResponseTextView.scrollRangeToVisible(bottom)
+        
         if let response = response {
             promptLabel.text = response.promptString
             typeResponseTextView.text = response.content
