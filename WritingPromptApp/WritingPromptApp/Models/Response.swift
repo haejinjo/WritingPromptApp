@@ -16,11 +16,13 @@ class Response {
     var content: String
     var rid: String
     var pid: String
+    var originalPoster: String
     let uid: String
     
     func getDict() -> [String:Any] {
         var responseDict = [String: Any]()
         responseDict["promptString"] = self.promptString
+        responseDict["originalPoster"] = self.originalPoster
         responseDict["modificationTime"] = self.modificationTime?.timeIntervalSince1970
         responseDict["content"] = self.content
 //        responseDict["rid"] = self.rid
@@ -46,6 +48,7 @@ class Response {
         self.uid = User.current.uid
         self.rid = ""
         self.pid = prompt.pid
+        self.originalPoster = prompt.originalPoster
 
     }
     
@@ -64,13 +67,17 @@ class Response {
             
             let promptReference = dict["pid"] as? String,
             
-            let userReference = dict["uid"] as? String
+            let userReference = dict["uid"] as? String,
+            
+            let originalPoster = dict["originalPoster"] as? String
+        
             else {return nil}
         
         self.rid = snapshot.key
         self.pid = promptReference
         self.uid = userReference
         self.promptString = promptString
+        self.originalPoster = originalPoster
         self.modificationTime = Date(timeIntervalSince1970: modificationTimeSeconds)
         self.content = content
 

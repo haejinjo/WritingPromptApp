@@ -12,7 +12,6 @@ struct Constants {
     
     struct Segue {
         static let toCreateUsername = "toCreateUsername"
-        static let toDisplayResponse = "toDisplayResponse"
         static let toReviews = "toReviews"
         static let toComposeResponse = "toComposeResponse"
     }
