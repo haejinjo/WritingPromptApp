@@ -26,7 +26,7 @@
                                 <rect key="frame" x="93.5" y="97" width="187.5" height="165"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginscreenlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-ie-vWN">
-                                        <rect key="frame" x="43.5" y="0.0" width="100" height="80"/>
+                                        <rect key="frame" x="44" y="0.0" width="100" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="QTl-xw-mTu"/>
                                             <constraint firstAttribute="width" constant="100" id="pAm-z8-T9c"/>
@@ -42,7 +42,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write poorly, and do it well" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWf-wE-rsL">
-                                                <rect key="frame" x="8" y="43" width="171" height="17"/>
+                                                <rect key="frame" x="8.5" y="43" width="171" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -114,8 +114,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-1Y-oYn">
                                 <rect key="frame" x="63" y="53.5" width="250" height="400"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe4-Gw-1wi">
-                                        <rect key="frame" x="5" y="0.0" width="240" height="300"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="hi" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe4-Gw-1wi">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="jLl-bd-VWW"/>
@@ -139,6 +139,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="fe4-Gw-1wi" firstAttribute="width" secondItem="xKE-1Y-oYn" secondAttribute="width" id="tsm-JO-uUq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -105,11 +105,11 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
     }
     
-    // how to deselect bars
-    // widen rows in table view
+
     // link to reddit user 
     // improve spotty reddit head 
     // show faq programmaticaly in text view
+    // make keyboard show up static in compose response VC
     
     func prepare() {
         
