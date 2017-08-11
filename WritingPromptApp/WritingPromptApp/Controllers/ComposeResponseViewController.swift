@@ -21,7 +21,7 @@ class ComposeResponseViewController: UIViewController {
     @IBOutlet weak var originalPosterButton: UIButton!
     var response: Response?
     var responseIndex: Int?
-    var originalPoster: String?
+    var originalPoster: String = ""
     var userIsComposing: Bool = true
     
     func openUrl(_ urlStr:String!) {
@@ -56,6 +56,7 @@ class ComposeResponseViewController: UIViewController {
     
     // HOW TO GET ORIGINALPOSTER PROPERTY OF THIS PROMPT OBJECT?? MUST REF THROUGH RESPONSE.PID BUT THEN WHAT??
     @IBAction func originalPosterButtonTapped(_ sender: Any) {
+        print("hi")
         openUrl("https://reddit.com/u/\(originalPoster)")
     }
     
