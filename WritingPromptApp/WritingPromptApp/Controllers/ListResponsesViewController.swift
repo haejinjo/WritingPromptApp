@@ -109,8 +109,8 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         PromptService.getTodaysPrompt(with: {
             
             ResponseService.retrieve{ (responsesArray) in
-                self.buttonSetUp(todaysPromptRespondedTo: false, responsesArray)
                 self.responses = responsesArray
+                self.buttonSetUp(todaysPromptRespondedTo: false, responsesArray)
                 self.tableView.reloadData()
             }
             

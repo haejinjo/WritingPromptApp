@@ -106,12 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritingPromptApp/Controllers/ListResponsesViewController.swift"
-            timestampString = "524109095.361199"
+            timestampString = "524110113.8619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "logOutTapped(_:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "buttonSetUp(todaysPromptRespondedTo:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritingPromptApp/Controllers/ListResponsesViewController.swift"
+            timestampString = "524110174.027435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "buttonSetUp(todaysPromptRespondedTo:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
