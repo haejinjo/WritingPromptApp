@@ -20,11 +20,11 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
     @IBOutlet weak var logOutButton: UIBarButtonItem!
     
     @IBAction func unwindToListResponsesViewController(_ segue: UIStoryboardSegue) {
-        print("unwinded to list responses vc")
+//        print("unwinded to list responses vc")
     }
     
     @IBAction func logOutTapped(_ sender: Any) {
-        print("log out tapped")
+//        print("log out tapped")
         do {
             try Auth.auth().signOut()
             if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
@@ -39,7 +39,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
             
             
         } catch let logoutError {
-            print(logoutError.localizedDescription)
+//            print(logoutError.localizedDescription)
         }
         
     } // END OF logoutaction
@@ -65,7 +65,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
         if let identifier = segue.identifier {
             // 2
             if identifier == Constants.Segue.toReviews {
-                print("folder button tapped")
+//                print("folder button tapped")
             } else if identifier == Constants.Segue.toComposeResponse {
                 
                 if !userIsComposing {
@@ -79,7 +79,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                     composeResponseViewController.responseIndex = indexPath.row
                 } else {
                     userIsComposing = false //reset
-                    print("haha")
+        
                 }
             }
         }
@@ -167,19 +167,7 @@ extension ListResponsesViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.performSegue(withIdentifier: "toComposeResponse", sender: self)
-        
-//        PromptService.getPrompt(withIdentifier: responses[indexPath.row].pid, completion: { (returnedPrompt) in
-//            if let temporaryReturnedPrompt = returnedPrompt
-//            {
-//                self.promptToPush = temporaryReturnedPrompt
-//
-//                self.performSegue(withIdentifier: "toComposeResponse", sender: self)
-//            }
-//            else
-//            {
-//                print("nothing")
-//            }
-//        })
+    
     }
     
 } // end of data source extension

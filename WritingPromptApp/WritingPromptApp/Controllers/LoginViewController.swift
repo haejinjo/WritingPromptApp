@@ -17,12 +17,12 @@ typealias FIRUser = FirebaseAuth.User
 class LoginViewController: UIViewController {
     
     @IBAction func unwindToLoginViewController(_ segue: UIStoryboardSegue) {
-        print("unwinded to login vc")
+//        print("unwinded to login vc")
     }
     
     @IBOutlet weak var getStartedButton: UIButton!
     @IBAction func getStartedButtonTapped(_ sender: UIButton) {
-        print("tapped get started")
+//        print("tapped get started")
 
         guard let authUI = FUIAuth.defaultAuthUI()
             else {return}
@@ -45,7 +45,7 @@ extension LoginViewController: FUIAuthDelegate {
    
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         if let error = error {
-            print("Error signing in: \(error.localizedDescription)")
+//            print("Error signing in: \(error.localizedDescription)")
             return
         }
         if let user = user {
@@ -60,7 +60,7 @@ extension LoginViewController: FUIAuthDelegate {
 //                    self.view.window?.rootViewController = initialViewController
 //                    self.view.window?.makeKeyAndVisible()
                     
-                    print("Welcome back \(user.username).")
+//                    print("Welcome back \(user.username).")
                 } else {
                     self.performSegue(withIdentifier: Constants.Segue.toCreateUsername, sender: self)
                 } // end of user if let check 

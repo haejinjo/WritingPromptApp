@@ -42,7 +42,6 @@ class ComposeResponseViewController: UIViewController {
         if let response = response {
             promptLabel.text = response.promptString
             typeResponseTextView.text = response.content
-            print(typeResponseTextView.text)
             userIsComposing = false
             originalPoster = response.originalPoster
         }
@@ -60,16 +59,15 @@ class ComposeResponseViewController: UIViewController {
     
     // HOW TO GET ORIGINALPOSTER PROPERTY OF THIS PROMPT OBJECT?? MUST REF THROUGH RESPONSE.PID BUT THEN WHAT??
     @IBAction func originalPosterButtonTapped(_ sender: Any) {
-        print("hi")
         openUrl("https://reddit.com/u/\(originalPoster)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "cancel" {
-                print("cancel tapped")
+//                print("cancel tapped")
             } else if identifier == "save" {
-                print("save tapped")
+//                print("save tapped")
                 let listResponsesViewController = segue.destination as! ListResponsesViewController
                 
                 // if user tapped a cell to modify existing response

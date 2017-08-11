@@ -26,7 +26,7 @@ class CreateUsernameViewController: UIViewController {
         UserService.create(firUser, username: username) { (user) in
             guard let user = user else {return}
             
-            print("Created new user: \(user.username)")
+//            print("Created new user: \(user.username)")
             
             User.setCurrent(user, writeToUserDefaults: true)
             

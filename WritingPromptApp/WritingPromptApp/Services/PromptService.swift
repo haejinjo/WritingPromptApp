@@ -52,8 +52,8 @@ struct PromptService {
                     completion(promptArray)
                 }
                 
-            case .failure(let error):
-                print(error)
+            case .failure(let error): break
+//                print(error)
             }
             
         } // CLOSURE ENDS
