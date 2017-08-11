@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,34 +32,48 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Prompt Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxD-lb-tsW">
-                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.32549019607843138" green="0.6588235294117647" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="response preview text" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8B-Mg-AxG">
-                                                    <rect key="frame" x="8" y="23" width="359" height="43"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Modification Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U66-S4-F2l">
-                                                    <rect key="frame" x="8" y="68" width="359" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.40392156862745099" green="0.396078431372549" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="10w-30-ZSf">
+                                                    <rect key="frame" x="8" y="8" width="375" height="56.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxD-lb-tsW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="Se4-ox-CJg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.32549019607843138" green="0.6588235294117647" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="response preview text" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8B-Mg-AxG">
+                                                            <rect key="frame" x="0.0" y="21" width="375" height="14.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="43" id="m9f-hm-gTu"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modification Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U66-S4-F2l">
+                                                            <rect key="frame" x="0.0" y="35.5" width="375" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="q6h-jL-sOW"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.40392156862745099" green="0.396078431372549" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nxD-lb-tsW" secondAttribute="trailing" id="0fA-HA-Efd"/>
-                                                <constraint firstItem="C8B-Mg-AxG" firstAttribute="leading" secondItem="wrz-KM-fYF" secondAttribute="leadingMargin" id="2Ha-Nu-MFe"/>
-                                                <constraint firstItem="nxD-lb-tsW" firstAttribute="leading" secondItem="wrz-KM-fYF" secondAttribute="leadingMargin" id="2ov-xH-bPB"/>
-                                                <constraint firstItem="U66-S4-F2l" firstAttribute="leading" secondItem="wrz-KM-fYF" secondAttribute="leadingMargin" id="H2b-zL-H3V"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="U66-S4-F2l" secondAttribute="trailing" id="NgT-Sc-y6d"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="C8B-Mg-AxG" secondAttribute="trailing" id="x7i-5V-5zt"/>
+                                                <constraint firstItem="10w-30-ZSf" firstAttribute="top" secondItem="wrz-KM-fYF" secondAttribute="top" constant="8" id="Kwf-H4-54q"/>
+                                                <constraint firstAttribute="bottom" secondItem="10w-30-ZSf" secondAttribute="bottom" id="a6q-f0-grv"/>
+                                                <constraint firstItem="10w-30-ZSf" firstAttribute="leading" secondItem="wrz-KM-fYF" secondAttribute="leading" constant="8" id="adB-qa-SjX"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="10w-30-ZSf" firstAttribute="width" secondItem="zf7-PW-0kX" secondAttribute="width" id="PJ6-PR-nYl"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="respondedPromptLabel" destination="nxD-lb-tsW" id="6vL-wm-dZL"/>
                                             <outlet property="responseModificationTimeLabel" destination="U66-S4-F2l" id="MkW-Qp-Nx2"/>
@@ -244,6 +257,6 @@
     </scenes>
     <resources>
         <image name="pencil" width="897" height="789"/>
-        <image name="redditwriter" width="233" height="199"/>
+        <image name="redditwriter" width="70" height="60"/>
     </resources>
 </document>
