@@ -70,7 +70,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                 
                 if !userIsComposing {
                     let indexPath = tableView.indexPathForSelectedRow!
-                    
+                    tableView.deselectRow(at: indexPath, animated: true)
                     let response = responses[indexPath.row]
                     let composeResponseViewController = segue.destination as! ComposeResponseViewController
                 
@@ -78,9 +78,9 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                     composeResponseViewController.response = response
                     composeResponseViewController.responseIndex = indexPath.row
                 } else {
+                    userIsComposing = false //reset
                     print("haha")
                 }
-
             }
         }
     }
@@ -88,6 +88,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
 
     func buttonSetUp(todaysPromptRespondedTo: Bool, _ responsesArray: [Response]) {
         var paramBool = todaysPromptRespondedTo
+        
         for completedResponse in responses {
             if completedResponse.pid == Prompt.todaysPrompt.pid {
                 self.composeButton.setImage(#imageLiteral(resourceName: "checkmark"), for: .normal)
@@ -96,13 +97,19 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
                 
                 paramBool = true
             }
-            
-            if !paramBool {
-                self.composeButton.backgroundColor = UIColor(colorLiteralRed: 83/255.0, green: 168/255.0, blue: 210/255.0, alpha: 1.0)
-                self.composeButton.isUserInteractionEnabled = true
-            }
         }
+        if !paramBool {
+            self.composeButton.backgroundColor = UIColor(colorLiteralRed: 83/255.0, green: 168/255.0, blue: 210/255.0, alpha: 1.0)
+            self.composeButton.isUserInteractionEnabled = true
+        }
+
     }
+    
+    // how to deselect bars
+    // widen rows in table view
+    // link to reddit user 
+    // improve spotty reddit head 
+    // show faq programmaticaly in text view
     
     func prepare() {
         

@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ZjX-Hp-LVZ">
-                                <rect key="frame" x="17.5" y="72.5" width="340" height="122"/>
+                                <rect key="frame" x="17.5" y="71" width="340" height="125"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bN5-1s-91f">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="90"/>
@@ -160,10 +160,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yQ-y9-57v">
-                                        <rect key="frame" x="300" y="90" width="40" height="32"/>
+                                        <rect key="frame" x="300" y="90" width="40" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="bp2-di-sCv"/>
-                                            <constraint firstAttribute="height" constant="32" id="uJn-vg-Ley"/>
+                                            <constraint firstAttribute="height" constant="35" id="uJn-vg-Ley"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="redditwriter">
                                             <color key="titleColor" red="0.019607843137254902" green="0.47843137254901957" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,7 +175,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Afb-KR-34p">
-                                <rect key="frame" x="18" y="194.5" width="340" height="278"/>
+                                <rect key="frame" x="18" y="196" width="340" height="275"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="340" id="Ke5-1h-YCF"/>
