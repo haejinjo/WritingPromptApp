@@ -39,12 +39,20 @@ class CreateUsernameViewController: UIViewController {
             if let initialViewController = storyboard.instantiateInitialViewController() {
                 self.navigationController?.popToRootViewController(animated: true)
                 // referring to current window, set rootViewController to the initial view controller
-                self.navigationController!.present(initialViewController, animated: true, completion: nil)
+                if let navController = self.navigationController {
+                    navController.present(initialViewController, animated: true, completion: nil)
+                } else {
+                    
+                }
                 
             }
         }
         
         
     
+    }
+    
+    override func viewDidLoad() {
+        nextButton.layer.cornerRadius = 6
     }
 }
