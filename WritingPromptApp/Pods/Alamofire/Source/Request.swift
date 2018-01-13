@@ -308,7 +308,10 @@ extension Request: CustomDebugStringConvertible {
                 let cookies = cookieStorage.cookies(for: url), !cookies.isEmpty
             {
                 let string = cookies.reduce("") { $0 + "\($1.name)=\($1.value);" }
-                components.append("-b \"\(string.substring(to: string.characters.index(before: string.endIndex)))\"")
+                
+                let indexEndofCookies = string.index(string.endIndex, offsetBy: 0)
+                let appendCookies = string[..<indexEndofCookies]
+                components.append("-b \"\(appendCookies/*.substring(to: string.characters.index(before: string.endIndex)*/))\"")
             }
         }
 

@@ -99,7 +99,7 @@ class ListResponsesViewController: UIViewController, MEVFloatingButtonDelegate {
             }
         }
         if !paramBool {
-            self.composeButton.backgroundColor = UIColor(colorLiteralRed: 83/255.0, green: 168/255.0, blue: 210/255.0, alpha: 1.0)
+            self.composeButton.backgroundColor = UIColor(red: 83.0/255.0, green: 168.0/255.0, blue: 210.0/255.0, alpha: 1.0)
             self.composeButton.isUserInteractionEnabled = true
         }
 

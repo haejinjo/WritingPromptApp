@@ -36,7 +36,7 @@ class ComposeResponseViewController: UIViewController {
         super.viewDidLoad()
         
         typeResponseTextView.becomeFirstResponder()
-        let bottom = NSMakeRange(typeResponseTextView.text.characters.count - 1, 1)
+        let bottom = NSMakeRange(typeResponseTextView.text.count-1, 1)
         typeResponseTextView.scrollRangeToVisible(bottom)
         
         if let response = response {
